@@ -1,0 +1,166 @@
+.section-container {
+  width: min(100% - 2rem, 1180px);
+  margin-inline: auto;
+}
+
+.btn-primary,
+.btn-secondary-dark,
+.btn-light {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 0.5rem;
+  padding: 0.82rem 1.18rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 52%, #22d3ee 100%);
+  color: #ffffff;
+  box-shadow: 0 18px 40px rgba(8, 145, 178, 0.26);
+}
+
+.btn-primary:hover,
+.btn-light:hover,
+.btn-secondary-dark:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 20px 46px rgba(8, 145, 178, 0.34);
+}
+
+.btn-secondary-dark {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+
+.btn-secondary-dark:hover {
+  border-color: rgba(103, 232, 249, 0.7);
+  color: #cffafe;
+}
+
+.btn-light {
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.2);
+}
+
+.btn-light:hover {
+  color: #0891b2;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 86%);
+}
+
+.visual-card {
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 0.85rem;
+  background: rgba(15, 23, 42, 0.58);
+  padding: 1.05rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.service-card,
+.brand-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.service-card {
+  min-height: 17.5rem;
+  padding: 1.55rem;
+}
+
+.service-card:hover,
+.brand-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(34, 211, 238, 0.55);
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.09);
+}
+
+.brand-card {
+  padding: 1.75rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  padding: 0.9rem 1rem;
+  color: #0f172a;
+  font-size: 1rem;
+  line-height: 1.5;
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.form-input:focus {
+  border-color: #0891b2;
+  box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.18);
+}
+
+.animate-fade-up {
+  animation: fade-up 760ms ease both;
+}
+
+.animation-delay-150 {
+  animation-delay: 150ms;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .section-container {
+    width: min(100% - 1.25rem, 1180px);
+  }
+
+  .btn-primary,
+  .btn-secondary-dark,
+  .btn-light {
+    width: 100%;
+    padding-inline: 1rem;
+  }
+}
