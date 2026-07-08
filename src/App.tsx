@@ -20,7 +20,7 @@ import {
 import { useState } from 'react'
 import './App.css'
 
-const logoPath = '/assets/syno-mark.png'
+const logoPath = '/assets/syno-logo.png'
 const markPath = '/assets/syno-mark.png'
 
 const navItems = [
