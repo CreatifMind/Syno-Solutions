@@ -9,7 +9,6 @@ import {
   ChevronLeft,
   Download,
   Eye,
-  GitBranch,
   Glasses,
   Handshake,
   Languages,
@@ -17,22 +16,20 @@ import {
   MapPin,
   Menu,
   MonitorCog,
-  Network,
   Phone,
   Presentation,
   Radar,
+  Rocket,
   ScanFace,
-  ShieldCheck,
   Sparkles,
+  Target,
   Volume2,
   Workflow,
   X,
-  Zap,
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import './App.css'
 
-const logoPath = '/assets/syno-logo.png'
 const markPath = '/assets/syno-mark.png'
 
 const navItems = [
@@ -139,13 +136,13 @@ function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/88 backdrop-blur-xl">
-      <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#020a1f]/92 backdrop-blur-xl">
+      <nav className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-5 sm:px-8 lg:px-6">
         <a href="#home" className="flex items-center gap-3" aria-label="Syno Solutions home">
-          <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-md border border-slate-200 bg-white shadow-sm">
+          <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-md bg-white/5 shadow-sm">
             <img src={markPath} alt="" className="h-10 w-10 object-cover" />
           </span>
-          <span className="text-base font-semibold text-slate-950 sm:text-lg">Syno Solutions</span>
+          <span className="text-base font-semibold uppercase tracking-[0.12em] text-white sm:text-lg">Syno Solutions</span>
         </a>
 
         <div className="hidden items-center gap-7 lg:flex">
@@ -153,7 +150,7 @@ function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-slate-600 transition hover:text-cyan-600"
+              className="text-sm font-semibold text-white/82 transition hover:text-cyan-300"
             >
               {item.label}
             </a>
@@ -168,7 +165,7 @@ function Header() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-slate-200 text-slate-700 lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-white/20 text-white lg:hidden"
           onClick={() => setIsOpen((value) => !value)}
           aria-label="Toggle navigation"
           aria-expanded={isOpen}
@@ -178,13 +175,13 @@ function Header() {
       </nav>
 
       {isOpen && (
-        <div className="border-t border-slate-200 bg-white px-5 py-4 shadow-xl lg:hidden">
+        <div className="border-t border-white/10 bg-[#020a1f] px-5 py-4 shadow-xl lg:hidden">
           <div className="mx-auto grid max-w-7xl gap-2">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="rounded-md px-3 py-3 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                className="rounded-md px-3 py-3 text-sm font-medium text-white/85 hover:bg-white/10"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -202,22 +199,23 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-slate-950 pt-28 text-white">
-      <div className="absolute inset-0 hero-grid opacity-40" />
-      <div className="absolute -right-24 top-24 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
-      <div className="absolute left-1/3 top-10 h-72 w-72 rounded-full bg-blue-600/20 blur-3xl" />
+    <section id="home" className="hero-shell relative overflow-hidden bg-slate-950 pt-20 text-white">
+      <div className="absolute inset-0 hero-grid opacity-45" />
+      <div className="absolute -right-24 top-20 h-[30rem] w-[30rem] rounded-full bg-cyan-400/20 blur-3xl" />
+      <div className="absolute left-1/3 top-8 h-72 w-72 rounded-full bg-blue-600/18 blur-3xl" />
 
-      <div className="section-container relative grid min-h-[680px] items-center gap-12 py-16 lg:grid-cols-[1.02fr_0.98fr] lg:py-20">
+      <div className="section-container relative grid min-h-[560px] items-center gap-8 pb-24 pt-12 lg:grid-cols-[0.9fr_1.1fr] lg:pb-24 lg:pt-10">
         <div className="max-w-3xl animate-fade-up">
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.03] text-white sm:text-6xl lg:text-7xl">
-            Smart Business Solutions for a More Efficient Future
+          <h1 className="max-w-4xl text-5xl font-extrabold leading-[1.03] text-white sm:text-6xl lg:text-[3.2rem] xl:text-[3.5rem]">
+            Smart Business Solutions for a More{' '}
+            <span className="text-cyan-300">Efficient Future</span>
           </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+          <p className="mt-6 max-w-xl text-base leading-7 text-slate-200 lg:text-lg lg:leading-8">
             Syno Solutions helps businesses improve operations, adopt practical technologies, and
             connect with innovative products through consultation, business solutions, and trusted
             distribution partnerships.
           </p>
-          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a href="#services" className="btn-primary">
               Explore Our Services
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -230,89 +228,45 @@ function Hero() {
 
         <HeroVisual />
       </div>
+      <div className="hero-curve" aria-hidden="true" />
     </section>
   )
 }
 
 function HeroVisual() {
   return (
-    <div className="relative mx-auto w-full max-w-[560px] animate-fade-up animation-delay-150">
+    <div className="relative mx-auto w-full max-w-[620px] animate-fade-up animation-delay-150">
       <div className="absolute -inset-8 rounded-[2rem] bg-cyan-400/10 blur-2xl" />
-      <div className="relative overflow-hidden rounded-[1.5rem] border border-white/15 bg-white/[0.07] p-5 shadow-2xl shadow-cyan-950/30 backdrop-blur">
-        <div className="flex items-center justify-between border-b border-white/10 pb-5">
-          <div>
-            <p className="text-sm font-medium text-cyan-200">Operational clarity</p>
-            <p className="mt-1 text-2xl font-semibold text-white">Solution roadmap</p>
-          </div>
-          <div className="flex h-12 w-12 items-center justify-center rounded-md bg-cyan-300/15 text-cyan-200">
-            <Network className="h-6 w-6" aria-hidden="true" />
-          </div>
-        </div>
-
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
-          <div className="visual-card sm:col-span-2">
-            <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-md bg-cyan-300/15 text-cyan-200">
-                <GitBranch className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <div>
-                <p className="text-sm font-semibold text-white">Workflow diagnosis</p>
-                <p className="text-xs text-slate-400">Map gaps, priorities, and next steps</p>
-              </div>
-            </div>
-            <div className="mt-5 grid grid-cols-4 gap-2">
-              {[72, 88, 64, 96].map((height) => (
-                <span
-                  key={height}
-                  className="block rounded-sm bg-gradient-to-t from-cyan-300 to-blue-500"
-                  style={{ height: `${height}px` }}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="visual-card">
-            <Zap className="h-5 w-5 text-cyan-200" aria-hidden="true" />
-            <p className="mt-4 text-sm font-semibold text-white">Automation</p>
-            <p className="mt-1 text-xs leading-5 text-slate-400">Reduce repetitive work</p>
-          </div>
-          <div className="visual-card">
-            <ShieldCheck className="h-5 w-5 text-cyan-200" aria-hidden="true" />
-            <p className="mt-4 text-sm font-semibold text-white">Market support</p>
-            <p className="mt-1 text-xs leading-5 text-slate-400">Kotti and InnoX distribution</p>
-          </div>
-        </div>
-      </div>
+      <img
+        src="/assets/hero-dashboard-concept.png"
+        alt="Digital business dashboard visual"
+        className="relative w-full rounded-xl object-cover"
+      />
     </div>
   )
 }
 
 function About() {
   return (
-    <section id="about" className="bg-white py-24 sm:py-28">
-      <div className="section-container grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+    <section id="about" className="relative bg-white py-14 sm:py-16">
+      <div className="section-container grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div>
+          <p className="section-kicker">About Us</p>
           <SectionHeading
             title="About Syno Solutions"
-            description="A newly formed Malaysia-based company built for practical, modern business improvement."
+            description="Syno Solutions is a Malaysia-based business solutions and consultation company focused on helping organizations identify challenges, improve processes, and implement practical solutions."
           />
-          <div className="mt-8 max-w-sm rounded-lg border border-slate-200 bg-white p-5 shadow-lg shadow-slate-100">
-            <img src={logoPath} alt="Syno Solutions logo" className="w-full object-contain" />
+          <p className="mt-5 text-base leading-7 text-slate-600">
+            We work with businesses that want to become more efficient, structured, and future-ready
+            through strategic consultation, digital solutions, and innovative product partnerships.
+          </p>
+          <div className="mt-8 flex items-center gap-3 text-sm font-bold text-slate-800">
+            <Rocket className="h-5 w-5 text-cyan-600" aria-hidden="true" />
+            Newly formed. Modern. Agile. Solution-oriented.
           </div>
         </div>
-        <div className="space-y-6 text-lg leading-8 text-slate-600">
-          <p>
-            Syno Solutions is a Malaysia-based business solutions and consultation company focused
-            on helping organizations identify challenges, improve processes, and implement practical
-            solutions. We work with businesses that want to become more efficient, structured, and
-            future-ready through strategic consultation, digital solutions, and innovative product
-            partnerships.
-          </p>
-          <p>
-            Newly formed and agile by design, Syno Solutions brings a solution-oriented approach to
-            clients that need clear thinking, practical technology adoption, and dependable support
-            for operational improvement.
-          </p>
+        <div className="about-media">
+          <img src="/assets/about-kl-concept.png" alt="Kuala Lumpur business skyline" className="relative z-10 w-full rounded-xl object-cover" />
         </div>
       </div>
     </section>
@@ -321,24 +275,25 @@ function About() {
 
 function Services() {
   return (
-    <section id="services" className="bg-slate-50 py-24 sm:py-28">
+    <section id="services" className="bg-gradient-to-b from-slate-50 to-white py-14 sm:py-16">
       <div className="section-container">
+        <p className="section-kicker text-center">What We Do</p>
         <SectionHeading
           title="Our Services"
-          description="Focused support for companies that want better structure, smarter workflows, and practical technology adoption."
+          description=""
           centered
         />
-        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {services.map((service) => {
             const Icon = service.icon
 
             return (
-              <article key={service.title} className="service-card group">
-                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-cyan-50 text-cyan-700 ring-1 ring-cyan-100 transition group-hover:bg-cyan-600 group-hover:text-white">
+              <article key={service.title} className="service-card group text-center">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-md bg-white text-blue-600 ring-1 ring-blue-100 transition group-hover:bg-blue-600 group-hover:text-white">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h3 className="mt-7 text-xl font-semibold text-slate-950">{service.title}</h3>
-                <p className="mt-4 leading-7 text-slate-600">{service.description}</p>
+                <h3 className="mt-4 text-base font-extrabold leading-tight text-slate-950">{service.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{service.description}</p>
               </article>
             )
           })}
@@ -350,44 +305,42 @@ function Services() {
 
 function Brands() {
   return (
-    <section id="brands" className="bg-white py-24 sm:py-28">
+    <section id="brands" className="bg-white py-14 sm:py-16">
       <div className="section-container">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="text-center">
+          <p className="section-kicker">Our Partners</p>
           <SectionHeading
             title="Our Distribution Brands"
-            description="Syno Solutions is proud to support the Malaysian market as a distributor of selected innovative brands."
+            description=""
+            centered
           />
-          <p className="max-w-2xl text-lg leading-8 text-slate-600 lg:ml-auto">
-            Syno Solutions supports product distribution conversations for Kotti and InnoX in
-            Malaysia, with product information summarized from the provided brand brochure.
-          </p>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-5 md:grid-cols-3">
           {brands.map((brand) => (
-            <article key={brand.name} className="brand-card">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-sm font-semibold uppercase text-cyan-700">{brand.name}</p>
-                  <h3 className="mt-3 text-3xl font-semibold text-slate-950">{brand.name}</h3>
-                </div>
-                <div className="flex h-14 w-14 items-center justify-center rounded-md bg-slate-950 text-cyan-200">
-                  <Building2 className="h-7 w-7" aria-hidden="true" />
-                </div>
+            <article key={brand.name} className="brand-card text-center">
+              <div className="brand-wordmark" aria-hidden="true">
+                {brand.name === 'InnoX' ? (
+                  <>
+                    INNO<span>X</span>
+                  </>
+                ) : (
+                  'KOTTI'
+                )}
               </div>
-              <p className="mt-7 leading-7 text-slate-600">{brand.description}</p>
-              <a href="#/products" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-cyan-700 transition hover:text-slate-950">
-                View Product Details
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </a>
+              <h3 className="mt-3 text-xl font-bold text-blue-600">{brand.name}</h3>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{brand.description}</p>
             </article>
           ))}
+          <a href="#/products" className="brand-card flex flex-col items-center justify-center text-center">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full border border-blue-100 text-blue-900">
+              <Building2 className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <p className="mt-5 text-lg font-extrabold leading-7 text-slate-950">
+              More product and brand information has been updated.
+            </p>
+          </a>
         </div>
-
-        <p className="mt-8 rounded-md border border-cyan-100 bg-cyan-50 px-5 py-4 text-sm font-medium text-slate-700">
-          Product descriptions can be refined further as official brochures, specifications, and
-          Malaysia launch materials are updated.
-        </p>
       </div>
     </section>
   )
@@ -507,19 +460,19 @@ function ProductDetail({ product, reverse = false }: ProductDetailProps) {
 
 function WhyChooseUs() {
   return (
-    <section id="why-us" className="relative overflow-hidden bg-slate-950 py-24 text-white sm:py-28">
-      <div className="absolute inset-0 hero-grid opacity-25" />
-      <div className="section-container relative grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+    <section id="why-us" className="bg-white py-10 text-slate-950 sm:py-12">
+      <div className="section-container">
+        <p className="section-kicker text-center">Why Choose Us</p>
         <SectionHeading
           title="Why Work With Syno Solutions?"
-          description="A grounded partner for companies that need practical guidance and access to innovation without unnecessary complexity."
-          dark
+          description=""
+          centered
         />
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="mt-7 grid gap-4 md:grid-cols-4">
           {reasons.map((reason) => (
-            <div key={reason} className="flex gap-4 rounded-md border border-white/10 bg-white/[0.06] p-5 backdrop-blur transition hover:-translate-y-1 hover:border-cyan-300/40">
-              <CheckCircle2 className="mt-1 h-5 w-5 flex-none text-cyan-300" aria-hidden="true" />
-              <p className="font-medium leading-7 text-slate-100">{reason}</p>
+            <div key={reason} className="why-item">
+              <Target className="h-9 w-9 text-blue-600" aria-hidden="true" />
+              <p className="font-extrabold leading-6 text-slate-900">{reason}</p>
             </div>
           ))}
         </div>
@@ -530,17 +483,22 @@ function WhyChooseUs() {
 
 function CTA() {
   return (
-    <section className="bg-white py-20">
-      <div className="section-container">
-        <div className="overflow-hidden rounded-lg bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-800 px-6 py-14 text-center text-white shadow-2xl shadow-blue-950/20 sm:px-10 lg:px-16">
-          <h2 className="text-4xl font-semibold leading-tight sm:text-5xl">
+    <section className="cta-strip bg-[#03184d] py-9 text-white">
+      <div className="section-container grid gap-7 md:grid-cols-[auto_1fr_auto] md:items-center">
+        <div className="flex h-24 w-24 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-cyan-400 text-white shadow-lg shadow-cyan-900/30">
+          <TrendingIcon />
+        </div>
+        <div>
+          <h2 className="text-3xl font-extrabold leading-tight sm:text-4xl">
             Ready to Improve Your Business Operations?
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg leading-8 text-slate-200">
+          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200">
             Let’s discuss how Syno Solutions can support your business with consultation,
             solutions, and innovative brand partnerships.
           </p>
-          <a href="#contact" className="btn-light mt-9">
+        </div>
+        <div>
+          <a href="#contact" className="btn-primary">
             Contact Syno Solutions
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
@@ -554,14 +512,14 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false)
 
   return (
-    <section id="contact" className="bg-slate-50 py-24 sm:py-28">
-      <div className="section-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+    <section id="contact" className="bg-white py-12 sm:py-14">
+      <div className="section-container">
+        <p className="section-kicker text-center">Contact Us</p>
+        <SectionHeading title="Get in Touch" description="" centered />
+      </div>
+      <div className="section-container mt-8 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
-          <SectionHeading
-            title="Get in Touch"
-            description="Share a few details and Syno Solutions will be ready to discuss the right consultation, solution, or distribution support for your business."
-          />
-          <div className="mt-10 grid gap-4">
+          <div className="grid gap-4">
             <ContactItem icon={Mail} label="Email" value="synosolutions26@gmail.com" href="mailto:synosolutions26@gmail.com" />
             <ContactItem icon={Phone} label="Phone" value="+60122818212" href="tel:+60122818212" />
             <ContactItem icon={MapPin} label="Location" value="Petaling Jaya, Malaysia" />
@@ -569,7 +527,7 @@ function Contact() {
         </div>
 
         <form
-          className="rounded-lg border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/70 sm:p-8"
+          className="rounded-lg border border-slate-200 bg-white p-5 shadow-xl shadow-slate-200/70 sm:p-6"
           onSubmit={(event) => {
             event.preventDefault()
             setSubmitted(true)
@@ -639,6 +597,19 @@ function ContactItem({ icon: Icon, label, value, href }: ContactItemProps) {
   return <div className="flex items-center gap-4 rounded-md border border-slate-200 bg-white p-4">{content}</div>
 }
 
+function TrendingIcon() {
+  return (
+    <svg className="h-14 w-14" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <path d="M10 50h44" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+      <path d="M16 43V31" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+      <path d="M29 43V24" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+      <path d="M42 43V17" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+      <path d="M14 27l12-10 10 8 16-17" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M43 8h9v9" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 type FormFieldProps = {
   label: string
   name: string
@@ -668,7 +639,7 @@ function FormField({ label, name, type = 'text', autoComplete, required }: FormF
 function Footer() {
   return (
     <footer className="bg-slate-950 py-12 text-slate-300">
-      <div className="section-container grid gap-10 md:grid-cols-[1.1fr_0.8fr_0.9fr]">
+      <div className="section-container grid gap-10 md:grid-cols-[1fr_0.65fr_0.9fr_0.95fr]">
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-md bg-white">
@@ -688,6 +659,16 @@ function Footer() {
                 {item.label}
               </a>
             ))}
+          </div>
+        </div>
+        <div>
+          <h3 className="text-sm font-semibold uppercase text-white">Services</h3>
+          <div className="mt-4 grid gap-2 text-sm text-slate-400">
+            <p>Business Consultation</p>
+            <p>Process Improvement</p>
+            <p>Digital Transformation</p>
+            <p>Automation Solutions</p>
+            <p>Product Distribution</p>
           </div>
         </div>
         <div>
@@ -723,7 +704,11 @@ function SectionHeading({ title, description, centered = false, dark = false }: 
       <h2 className={`text-4xl font-semibold leading-tight sm:text-5xl ${dark ? 'text-white' : 'text-slate-950'}`}>
         {title}
       </h2>
-      <p className={`mt-5 text-lg leading-8 ${dark ? 'text-slate-300' : 'text-slate-600'}`}>{description}</p>
+      {description && (
+        <p className={`mt-5 text-lg leading-8 ${dark ? 'text-slate-300' : 'text-slate-600'}`}>
+          {description}
+        </p>
+      )}
     </div>
   )
 }
