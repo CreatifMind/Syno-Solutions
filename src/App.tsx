@@ -1,23 +1,35 @@
 import {
   ArrowRight,
   Bot,
+  Brain,
   Briefcase,
   Building2,
+  Captions,
   CheckCircle2,
+  ChevronLeft,
+  Download,
+  Eye,
   GitBranch,
+  Glasses,
   Handshake,
+  Languages,
   Mail,
   MapPin,
   Menu,
   MonitorCog,
   Network,
   Phone,
+  Presentation,
+  Radar,
+  ScanFace,
   ShieldCheck,
+  Sparkles,
+  Volume2,
   Workflow,
   X,
   Zap,
 } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const logoPath = '/assets/syno-logo.png'
@@ -69,13 +81,51 @@ const brands = [
   {
     name: 'Kotti',
     description:
-      'Kotti represents practical and innovative solutions designed to support modern business and consumer needs.',
+      'Kotti is presented as a multimodal companion that understands user context through vision, auditory sensing, and haptic feedback.',
   },
   {
     name: 'InnoX',
     description:
-      'InnoX focuses on forward-thinking products and solutions that align with efficiency, innovation, and business value.',
+      'InnoX focuses on AR smart glasses and accessibility-focused visual communication technologies.',
   },
+]
+
+const productHighlights = [
+  {
+    brand: 'Kotti',
+    title: 'Kotti The Multimodal Companion',
+    summary:
+      'Kotti perceives not just commands, but contexts. Through the fusion of computer vision, auditory sensing, and haptic feedback, it recognizes micro-expressions, anticipates emotional states, and cultivates a learning relationship unique to each user.',
+    image: '/assets/kotti-product-info.png',
+    features: [
+      { label: 'Built-in mainstream AI model', icon: Brain },
+      { label: 'Supports multiple languages', icon: Languages },
+      { label: 'Personality customization', icon: Sparkles },
+      { label: 'Proactive proximity sensing', icon: Radar },
+    ],
+  },
+  {
+    brand: 'InnoX',
+    title: 'Let sound be seen.',
+    summary:
+      'InnoX smart glasses are described as accessibility-focused AR glasses that combine voice interaction, gaze tracking, and AI description capabilities to support people with hearing impairments and everyday users.',
+    image: '/assets/innox-product-info.png',
+    features: [
+      { label: 'Binocular display with near-eye Venus OS system', icon: Glasses },
+      { label: 'Core AR optical waveguide technology', icon: Eye },
+      { label: 'Multimodal AI recognition', icon: ScanFace },
+      { label: 'Real-time speech-to-text projected onto the lenses', icon: Captions },
+      { label: 'Zero-latency visual communication', icon: Volume2 },
+      { label: 'Prompter artifact for more composed presentations', icon: Presentation },
+    ],
+  },
+]
+
+const productNotes = [
+  'Medical-grade design suitable for daily and clinical scenarios',
+  'Ultra-light body for comfortable wearing',
+  'High-definition display resistant to strong light',
+  'Designed to support efficient and natural communication',
 ]
 
 const reasons = [
@@ -308,8 +358,8 @@ function Brands() {
             description="Syno Solutions is proud to support the Malaysian market as a distributor of selected innovative brands."
           />
           <p className="max-w-2xl text-lg leading-8 text-slate-600 lg:ml-auto">
-            The section is structured to stay flexible as more product and brand information becomes
-            available.
+            Syno Solutions supports product distribution conversations for Kotti and InnoX in
+            Malaysia, with product information summarized from the provided brand brochure.
           </p>
         </div>
 
@@ -326,15 +376,132 @@ function Brands() {
                 </div>
               </div>
               <p className="mt-7 leading-7 text-slate-600">{brand.description}</p>
+              <a href="#/products" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-cyan-700 transition hover:text-slate-950">
+                View Product Details
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
             </article>
           ))}
         </div>
 
         <p className="mt-8 rounded-md border border-cyan-100 bg-cyan-50 px-5 py-4 text-sm font-medium text-slate-700">
-          More product and brand information will be updated soon.
+          Product descriptions can be refined further as official brochures, specifications, and
+          Malaysia launch materials are updated.
         </p>
       </div>
     </section>
+  )
+}
+
+function ProductsPage() {
+  return (
+    <main>
+      <section className="relative overflow-hidden bg-slate-950 pt-32 text-white">
+        <div className="absolute inset-0 hero-grid opacity-35" />
+        <div className="absolute -right-24 top-20 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
+        <div className="section-container relative grid gap-12 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="animate-fade-up">
+            <a href="#brands" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 transition hover:text-white">
+              <ChevronLeft className="h-4 w-4" aria-hidden="true" />
+              Back to Brands
+            </a>
+            <h1 className="mt-7 max-w-4xl text-5xl font-semibold leading-[1.04] text-white sm:text-6xl">
+              Product Information for Kotti and InnoX
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
+              Syno Solutions supports the Malaysian market as a distributor for selected innovative
+              products. The information below is summarized from the attached Kotti and InnoX
+              brochure.
+            </p>
+            <div className="mt-9 flex flex-col gap-4 sm:flex-row">
+              <a href="#contact" className="btn-primary">
+                Discuss Distribution
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a href="/assets/kotti-and-innox.pdf" className="btn-secondary-dark" target="_blank" rel="noreferrer">
+                Download Brochure
+                <Download className="h-4 w-4" aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <div className="rounded-xl border border-white/10 bg-white/[0.06] p-5 shadow-2xl shadow-cyan-950/30 backdrop-blur">
+            <div className="grid gap-4 sm:grid-cols-2">
+              {productHighlights.map((product) => (
+                <div key={product.brand} className="rounded-lg border border-white/10 bg-slate-950/50 p-5">
+                  <p className="text-sm font-semibold uppercase text-cyan-200">{product.brand}</p>
+                  <h2 className="mt-3 text-2xl font-semibold text-white">{product.title}</h2>
+                  <p className="mt-4 text-sm leading-6 text-slate-300">{product.summary}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-24 sm:py-28">
+        <div className="section-container space-y-20">
+          {productHighlights.map((product, index) => (
+            <ProductDetail key={product.brand} product={product} reverse={index % 2 === 1} />
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-slate-50 py-24 sm:py-28">
+        <div className="section-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <SectionHeading
+            title="Malaysia Distribution Support"
+            description="Syno Solutions can support business inquiries, market conversations, and product partnership discussions for Kotti and InnoX in Malaysia."
+          />
+          <div className="grid gap-4 sm:grid-cols-2">
+            {productNotes.map((note) => (
+              <div key={note} className="flex gap-4 rounded-md border border-slate-200 bg-white p-5 shadow-sm">
+                <CheckCircle2 className="mt-1 h-5 w-5 flex-none text-cyan-600" aria-hidden="true" />
+                <p className="font-medium leading-7 text-slate-700">{note}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTA />
+      <Contact />
+    </main>
+  )
+}
+
+type ProductDetailProps = {
+  product: (typeof productHighlights)[number]
+  reverse?: boolean
+}
+
+function ProductDetail({ product, reverse = false }: ProductDetailProps) {
+  return (
+    <article className={`grid gap-10 lg:grid-cols-2 lg:items-center ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+      <div>
+        <p className="text-sm font-semibold uppercase text-cyan-700">{product.brand}</p>
+        <h2 className="mt-3 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
+          {product.title}
+        </h2>
+        <p className="mt-6 text-lg leading-8 text-slate-600">{product.summary}</p>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {product.features.map((feature) => {
+            const Icon = feature.icon
+
+            return (
+              <div key={feature.label} className="product-feature">
+                <span className="flex h-11 w-11 flex-none items-center justify-center rounded-md bg-cyan-50 text-cyan-700 ring-1 ring-cyan-100">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <p className="font-semibold leading-6 text-slate-800">{feature.label}</p>
+              </div>
+            )
+          })}
+        </div>
+      </div>
+      <div className="product-brochure">
+        <img src={product.image} alt={`${product.brand} product brochure page`} className="w-full rounded-lg object-cover" />
+      </div>
+    </article>
   )
 }
 
@@ -562,21 +729,55 @@ function SectionHeading({ title, description, centered = false, dark = false }: 
 }
 
 function App() {
+  const page = useHashPage()
+
   return (
     <>
       <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Brands />
-        <WhyChooseUs />
-        <CTA />
-        <Contact />
-      </main>
+      {page === 'products' ? <ProductsPage /> : <LandingPage />}
       <Footer />
     </>
   )
+}
+
+function LandingPage() {
+  return (
+    <main>
+      <Hero />
+      <About />
+      <Services />
+      <Brands />
+      <WhyChooseUs />
+      <CTA />
+      <Contact />
+    </main>
+  )
+}
+
+function useHashPage() {
+  const [hash, setHash] = useState(() => window.location.hash)
+
+  useEffect(() => {
+    const handleHashChange = () => setHash(window.location.hash)
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  useEffect(() => {
+    if (hash === '#/products') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+
+    if (hash.startsWith('#') && hash.length > 1) {
+      window.requestAnimationFrame(() => {
+        document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' })
+      })
+    }
+  }, [hash])
+
+  return hash === '#/products' ? 'products' : 'home'
 }
 
 export default App

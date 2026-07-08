@@ -105,6 +105,27 @@
   padding: 1.75rem;
 }
 
+.product-feature {
+  display: flex;
+  min-height: 5.25rem;
+  align-items: flex-start;
+  gap: 0.95rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  background: #ffffff;
+  padding: 1rem;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.05);
+}
+
+.product-brochure {
+  overflow: hidden;
+  border: 1px solid #dbeafe;
+  border-radius: 0.85rem;
+  background: linear-gradient(145deg, #eff6ff 0%, #ecfeff 100%);
+  padding: 0.65rem;
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.12);
+}
+
 .form-label {
   display: block;
   margin-bottom: 0.5rem;
