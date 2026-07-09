@@ -224,13 +224,28 @@
   box-shadow: 0 16px 35px rgba(15, 23, 42, 0.05);
 }
 
-.product-brochure {
+.product-gallery {
+  display: grid;
+  gap: 1rem;
+}
+
+.product-image-frame {
   overflow: hidden;
   border: 1px solid #dbeafe;
   border-radius: 0.85rem;
   background: linear-gradient(145deg, #eff6ff 0%, #ecfeff 100%);
   padding: 0.65rem;
   box-shadow: 0 24px 55px rgba(15, 23, 42, 0.12);
+}
+
+.product-image-frame img {
+  display: block;
+  min-height: 13rem;
+  border-radius: 0.55rem;
+}
+
+.product-image-frame-featured img {
+  min-height: 17rem;
 }
 
 .form-label {

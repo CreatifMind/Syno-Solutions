@@ -7,7 +7,6 @@ import {
   Captions,
   CheckCircle2,
   ChevronLeft,
-  Download,
   Eye,
   Glasses,
   Handshake,
@@ -91,9 +90,19 @@ const productHighlights = [
   {
     brand: 'Kotti',
     title: 'Kotti The Multimodal Companion',
+    eyebrow: 'Multimodal companion',
     summary:
       'Kotti perceives not just commands, but contexts. Through the fusion of computer vision, auditory sensing, and haptic feedback, it recognizes micro-expressions, anticipates emotional states, and cultivates a learning relationship unique to each user.',
-    image: '/assets/kotti-product-info.png',
+    images: [
+      {
+        src: '/assets/kotti-capability-cards.png',
+        alt: 'Kotti capability examples from the product brochure',
+      },
+      {
+        src: '/assets/kotti-product-variants.png',
+        alt: 'Kotti product color and character variants',
+      },
+    ],
     features: [
       { label: 'Built-in mainstream AI model', icon: Brain },
       { label: 'Supports multiple languages', icon: Languages },
@@ -104,9 +113,23 @@ const productHighlights = [
   {
     brand: 'InnoX',
     title: 'Let sound be seen.',
+    eyebrow: 'AR smart glasses',
     summary:
-      'InnoX smart glasses are described as accessibility-focused AR glasses that combine voice interaction, gaze tracking, and AI description capabilities to support people with hearing impairments and everyday users.',
-    image: '/assets/innox-product-info.png',
+      'InnoX smart glasses focus on voice interaction, gaze tracking, and AI description capabilities to make glasses more accessible for people with hearing impairments while also benefiting everyday users.',
+    images: [
+      {
+        src: '/assets/innox-binocular-display.png',
+        alt: 'InnoX binocular display and near-eye Venus OS system',
+      },
+      {
+        src: '/assets/innox-prompter-view.png',
+        alt: 'InnoX prompter presentation use case',
+      },
+      {
+        src: '/assets/innox-communication-use.png',
+        alt: 'InnoX smart glasses communication use case',
+      },
+    ],
     features: [
       { label: 'Binocular display with near-eye Venus OS system', icon: Glasses },
       { label: 'Core AR optical waveguide technology', icon: Eye },
@@ -114,15 +137,18 @@ const productHighlights = [
       { label: 'Real-time speech-to-text projected onto the lenses', icon: Captions },
       { label: 'Zero-latency visual communication', icon: Volume2 },
       { label: 'Prompter artifact for more composed presentations', icon: Presentation },
+      { label: 'Medical-grade design suitable for daily and clinical scenarios', icon: CheckCircle2 },
+      { label: 'Ultra-light body for comfortable wearing', icon: CheckCircle2 },
+      { label: 'High-definition display resistant to strong light', icon: CheckCircle2 },
     ],
   },
 ]
 
 const productNotes = [
-  'Medical-grade design suitable for daily and clinical scenarios',
-  'Ultra-light body for comfortable wearing',
-  'High-definition display resistant to strong light',
-  'Designed to support efficient and natural communication',
+  'Product information is extracted from the supplied Kotti and InnoX brochure and rewritten for clearer website presentation.',
+  'Syno Solutions can support Malaysian business inquiries, market conversations, and product partnership discussions.',
+  'Further specifications, pricing, warranty, and availability details can be added once official launch material is finalized.',
+  'The page is structured for future product updates without requiring visitors to download the original PDF.',
 ]
 
 const reasons = [
@@ -363,17 +389,24 @@ function ProductsPage() {
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
               Syno Solutions supports the Malaysian market as a distributor for selected innovative
-              products. The information below is summarized from the attached Kotti and InnoX
-              brochure.
+              products. The information below is extracted and rewritten from the supplied Kotti and
+              InnoX brochure, with clearer product visuals placed directly on this page.
             </p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a href="#contact" className="btn-primary">
                 Discuss Distribution
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
-              <a href="/assets/kotti-and-innox.pdf" className="btn-secondary-dark" target="_blank" rel="noreferrer">
-                Download Brochure
-                <Download className="h-4 w-4" aria-hidden="true" />
+              <a
+                href="#product-details"
+                className="btn-secondary-dark"
+                onClick={(event) => {
+                  event.preventDefault()
+                  document.querySelector('#product-details')?.scrollIntoView({ behavior: 'smooth' })
+                }}
+              >
+                View Product Details
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -381,7 +414,7 @@ function ProductsPage() {
             <div className="grid gap-4 sm:grid-cols-2">
               {productHighlights.map((product) => (
                 <div key={product.brand} className="rounded-lg border border-white/10 bg-slate-950/50 p-5">
-                  <p className="text-sm font-semibold uppercase text-cyan-200">{product.brand}</p>
+                  <p className="text-sm font-semibold uppercase text-cyan-200">{product.eyebrow}</p>
                   <h2 className="mt-3 text-2xl font-semibold text-white">{product.title}</h2>
                   <p className="mt-4 text-sm leading-6 text-slate-300">{product.summary}</p>
                 </div>
@@ -391,7 +424,7 @@ function ProductsPage() {
         </div>
       </section>
 
-      <section className="bg-white py-24 sm:py-28">
+      <section id="product-details" className="bg-white py-24 sm:py-28">
         <div className="section-container space-y-20">
           {productHighlights.map((product, index) => (
             <ProductDetail key={product.brand} product={product} reverse={index % 2 === 1} />
@@ -431,7 +464,7 @@ function ProductDetail({ product, reverse = false }: ProductDetailProps) {
   return (
     <article className={`grid gap-10 lg:grid-cols-2 lg:items-center ${reverse ? 'lg:[&>*:first-child]:order-2' : ''}`}>
       <div>
-        <p className="text-sm font-semibold uppercase text-cyan-700">{product.brand}</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.14em] text-cyan-700">{product.brand}</p>
         <h2 className="mt-3 text-4xl font-semibold leading-tight text-slate-950 sm:text-5xl">
           {product.title}
         </h2>
@@ -451,8 +484,12 @@ function ProductDetail({ product, reverse = false }: ProductDetailProps) {
           })}
         </div>
       </div>
-      <div className="product-brochure">
-        <img src={product.image} alt={`${product.brand} product brochure page`} className="w-full rounded-lg object-cover" />
+      <div className="product-gallery">
+        {product.images.map((image, index) => (
+          <figure key={image.src} className={index === 0 ? 'product-image-frame product-image-frame-featured' : 'product-image-frame'}>
+            <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+          </figure>
+        ))}
       </div>
     </article>
   )
