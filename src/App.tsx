@@ -548,7 +548,7 @@ function Contact() {
       ].join('\n'),
     )
 
-    window.location.href = `mailto:synosolutions26@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:synosolutions.ent@gmail.com?subject=${subject}&body=${body}`
     setSubmitted(true)
   }
 
@@ -561,7 +561,7 @@ function Contact() {
       <div className="section-container mt-8 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <div className="grid gap-4">
-            <ContactItem icon={Mail} label="Email" value="synosolutions26@gmail.com" href="mailto:synosolutions26@gmail.com" />
+            <ContactItem icon={Mail} label="Email" value="synosolutions.ent@gmail.com" href="mailto:synosolutions.ent@gmail.com" />
             <ContactItem icon={Phone} label="Phone" value="+60122818212" href="tel:+60122818212" />
             <ContactItem icon={MapPin} label="Location" value="Petaling Jaya, Malaysia" />
           </div>
@@ -712,8 +712,8 @@ function Footer() {
         <div>
           <h3 className="text-sm font-semibold uppercase text-white">Contact</h3>
           <div className="mt-4 grid gap-2 text-sm text-slate-400">
-            <a href="mailto:synosolutions26@gmail.com" className="hover:text-cyan-200">
-              synosolutions26@gmail.com
+            <a href="mailto:synosolutions.ent@gmail.com" className="hover:text-cyan-200">
+              synosolutions.ent@gmail.com
             </a>
             <a href="tel:+60122818212" className="hover:text-cyan-200">
               +60122818212
