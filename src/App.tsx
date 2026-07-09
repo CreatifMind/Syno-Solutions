@@ -524,6 +524,34 @@ function CTA() {
 function Contact() {
   const [submitted, setSubmitted] = useState(false)
 
+  const handleContactSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    const formData = new FormData(event.currentTarget)
+    const name = String(formData.get('name') ?? '').trim()
+    const company = String(formData.get('company') ?? '').trim()
+    const email = String(formData.get('email') ?? '').trim()
+    const phone = String(formData.get('phone') ?? '').trim()
+    const message = String(formData.get('message') ?? '').trim()
+    const subject = encodeURIComponent(`Syno Solutions enquiry from ${name || 'website visitor'}`)
+    const body = encodeURIComponent(
+      [
+        'New enquiry from the Syno Solutions website:',
+        '',
+        `Name: ${name}`,
+        `Company: ${company}`,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+        '',
+        'Message:',
+        message,
+      ].join('\n'),
+    )
+
+    window.location.href = `mailto:synosolutions26@gmail.com?subject=${subject}&body=${body}`
+    setSubmitted(true)
+  }
+
   return (
     <section id="contact" className="bg-white py-12 sm:py-14">
       <div className="section-container">
@@ -541,10 +569,7 @@ function Contact() {
 
         <form
           className="rounded-lg border border-slate-200 bg-white p-5 shadow-xl shadow-slate-200/70 sm:p-6"
-          onSubmit={(event) => {
-            event.preventDefault()
-            setSubmitted(true)
-          }}
+          onSubmit={handleContactSubmit}
         >
           <div className="grid gap-5 sm:grid-cols-2">
             <FormField label="Name" name="name" autoComplete="name" required />
@@ -570,7 +595,7 @@ function Contact() {
           </button>
           {submitted && (
             <p className="mt-4 rounded-md bg-cyan-50 px-4 py-3 text-sm font-medium text-cyan-800">
-              Thank you. Your message has been prepared for future Syno Solutions follow-up.
+              Your email app should open with the enquiry prepared for Syno Solutions.
             </p>
           )}
         </form>
