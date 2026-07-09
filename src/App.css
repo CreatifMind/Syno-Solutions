@@ -240,12 +240,7 @@
 
 .product-image-frame img {
   display: block;
-  min-height: 13rem;
   border-radius: 0.55rem;
-}
-
-.product-image-frame-featured img {
-  min-height: 17rem;
 }
 
 .form-label {

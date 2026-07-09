@@ -144,13 +144,6 @@ const productHighlights = [
   },
 ]
 
-const productNotes = [
-  'Product information is extracted from the supplied Kotti and InnoX brochure and rewritten for clearer website presentation.',
-  'Syno Solutions can support Malaysian business inquiries, market conversations, and product partnership discussions.',
-  'Further specifications, pricing, warranty, and availability details can be added once official launch material is finalized.',
-  'The page is structured for future product updates without requiring visitors to download the original PDF.',
-]
-
 const reasons = [
   'Practical, business-focused solutions',
   'Modern and agile approach',
@@ -363,7 +356,7 @@ function Brands() {
               <Building2 className="h-6 w-6" aria-hidden="true" />
             </span>
             <p className="mt-5 text-lg font-extrabold leading-7 text-slate-950">
-              More product and brand information has been updated.
+              Click here to learn more
             </p>
           </a>
         </div>
@@ -432,23 +425,6 @@ function ProductsPage() {
         </div>
       </section>
 
-      <section className="bg-slate-50 py-24 sm:py-28">
-        <div className="section-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-          <SectionHeading
-            title="Malaysia Distribution Support"
-            description="Syno Solutions can support business inquiries, market conversations, and product partnership discussions for Kotti and InnoX in Malaysia."
-          />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {productNotes.map((note) => (
-              <div key={note} className="flex gap-4 rounded-md border border-slate-200 bg-white p-5 shadow-sm">
-                <CheckCircle2 className="mt-1 h-5 w-5 flex-none text-cyan-600" aria-hidden="true" />
-                <p className="font-medium leading-7 text-slate-700">{note}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <CTA />
       <Contact />
     </main>
@@ -487,7 +463,7 @@ function ProductDetail({ product, reverse = false }: ProductDetailProps) {
       <div className="product-gallery">
         {product.images.map((image, index) => (
           <figure key={image.src} className={index === 0 ? 'product-image-frame product-image-frame-featured' : 'product-image-frame'}>
-            <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
+            <img src={image.src} alt={image.alt} className="w-full" />
           </figure>
         ))}
       </div>
