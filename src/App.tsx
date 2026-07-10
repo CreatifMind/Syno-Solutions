@@ -157,11 +157,11 @@ function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#020a1f]/92 backdrop-blur-xl">
       <nav className="mx-auto flex h-20 max-w-[1200px] items-center justify-between px-5 sm:px-8 lg:px-6">
-        <a href="#home" className="flex items-center gap-3" aria-label="Syno Solutions home">
+        <a href="#home" className="flex items-center gap-3" aria-label="SYNO SOLUTIONS home">
           <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-md bg-white/5 shadow-sm">
             <img src={markPath} alt="" className="h-10 w-10 object-cover" />
           </span>
-          <span className="text-base font-semibold uppercase tracking-[0.12em] text-white sm:text-lg">Syno Solutions</span>
+          <span className="text-base font-semibold uppercase tracking-[0.12em] text-white sm:text-lg">SYNO SOLUTIONS</span>
         </a>
 
         <div className="hidden items-center gap-7 lg:flex">
@@ -230,7 +230,7 @@ function Hero() {
             <span className="text-cyan-300">Efficient Future</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-7 text-slate-200 lg:text-lg lg:leading-8">
-            Syno Solutions helps businesses improve operations, adopt practical technologies, and
+            SYNO SOLUTIONS helps businesses improve operations, adopt practical technologies, and
             connect with innovative products through consultation, business solutions, and trusted
             distribution partnerships.
           </p>
@@ -272,8 +272,8 @@ function About() {
         <div>
           <p className="section-kicker">About Us</p>
           <SectionHeading
-            title="About Syno Solutions"
-            description="Syno Solutions is a Malaysia-based business solutions and consultation company focused on helping organizations identify challenges, improve processes, and implement practical solutions."
+            title="About SYNO SOLUTIONS"
+            description="SYNO SOLUTIONS is a Malaysia-based business solutions and consultation company focused on helping organizations identify challenges, improve processes, and implement practical solutions."
           />
           <p className="mt-5 text-base leading-7 text-slate-600">
             We work with businesses that want to become more efficient, structured, and future-ready
@@ -381,7 +381,7 @@ function ProductsPage() {
               Product Information for Kotti and InnoX
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
-              Syno Solutions supports the Malaysian market as a distributor for selected innovative
+              SYNO SOLUTIONS supports the Malaysian market as a distributor for selected innovative
               products. The information below is extracted and rewritten from the supplied Kotti and
               InnoX brochure, with clearer product visuals placed directly on this page.
             </p>
@@ -477,7 +477,7 @@ function WhyChooseUs() {
       <div className="section-container">
         <p className="section-kicker text-center">Why Choose Us</p>
         <SectionHeading
-          title="Why Work With Syno Solutions?"
+          title="Why Work With SYNO SOLUTIONS?"
           description=""
           centered
         />
@@ -506,13 +506,13 @@ function CTA() {
             Ready to Improve Your Business Operations?
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200">
-            Let’s discuss how Syno Solutions can support your business with consultation,
+            Let’s discuss how SYNO SOLUTIONS can support your business with consultation,
             solutions, and innovative brand partnerships.
           </p>
         </div>
         <div>
           <a href="#contact" className="btn-primary">
-            Contact Syno Solutions
+            Contact SYNO SOLUTIONS
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
@@ -533,10 +533,10 @@ function Contact() {
     const email = String(formData.get('email') ?? '').trim()
     const phone = String(formData.get('phone') ?? '').trim()
     const message = String(formData.get('message') ?? '').trim()
-    const subject = encodeURIComponent(`Syno Solutions enquiry from ${name || 'website visitor'}`)
+    const subject = encodeURIComponent(`SYNO SOLUTIONS enquiry from ${name || 'website visitor'}`)
     const body = encodeURIComponent(
       [
-        'New enquiry from the Syno Solutions website:',
+        'New enquiry from the SYNO SOLUTIONS website:',
         '',
         `Name: ${name}`,
         `Company: ${company}`,
@@ -595,7 +595,7 @@ function Contact() {
           </button>
           {submitted && (
             <p className="mt-4 rounded-md bg-cyan-50 px-4 py-3 text-sm font-medium text-cyan-800">
-              Your email app should open with the enquiry prepared for Syno Solutions.
+              Your email app should open with the enquiry prepared for SYNO SOLUTIONS.
             </p>
           )}
         </form>
@@ -683,7 +683,7 @@ function Footer() {
             <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-md bg-white">
               <img src={markPath} alt="" className="h-9 w-9 object-cover" />
             </span>
-            <h2 className="text-2xl font-semibold text-white">Syno Solutions</h2>
+            <h2 className="text-2xl font-semibold text-white">SYNO SOLUTIONS</h2>
           </div>
           <p className="mt-4 max-w-sm leading-7 text-slate-400">
             Business solutions, consultation, and innovation partnerships.
@@ -723,7 +723,7 @@ function Footer() {
         </div>
       </div>
       <div className="section-container mt-10 border-t border-white/10 pt-6 text-sm text-slate-500">
-        © 2026 Syno Solutions. All rights reserved.
+        © 2026 SYNO SOLUTIONS. All rights reserved.
       </div>
     </footer>
   )

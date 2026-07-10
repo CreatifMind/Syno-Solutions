@@ -1,6 +1,6 @@
-# Syno Solutions
+# SYNO SOLUTIONS
 
-Modern responsive landing page for Syno Solutions, built with React, TypeScript, Vite, Tailwind CSS, and lucide-react.
+Modern responsive landing page for SYNO SOLUTIONS, built with React, TypeScript, Vite, Tailwind CSS, and lucide-react.
 
 ## Local Development
 
