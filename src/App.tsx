@@ -95,12 +95,16 @@ const productHighlights = [
       'Kotti perceives not just commands, but contexts. Through the fusion of computer vision, auditory sensing, and haptic feedback, it recognizes micro-expressions, anticipates emotional states, and cultivates a learning relationship unique to each user.',
     images: [
       {
-        src: '/assets/kotti-capability-cards.png',
-        alt: 'Kotti capability examples from the product brochure',
+        src: '/assets/kotti-product-lineup.jpg',
+        alt: 'Kotti companion product lineup with packaging',
       },
       {
-        src: '/assets/kotti-product-variants.png',
-        alt: 'Kotti product color and character variants',
+        src: '/assets/kotti-desk-companions.jpg',
+        alt: 'Kotti companions on a modern desk setup',
+      },
+      {
+        src: '/assets/kotti-lifestyle-companion.jpg',
+        alt: 'Kotti companion in a lifestyle setting',
       },
     ],
     features: [
@@ -118,16 +122,16 @@ const productHighlights = [
       'InnoX smart glasses focus on voice interaction, gaze tracking, and AI description capabilities to make glasses more accessible for people with hearing impairments while also benefiting everyday users.',
     images: [
       {
-        src: '/assets/innox-binocular-display.png',
-        alt: 'InnoX binocular display and near-eye Venus OS system',
+        src: '/assets/innox-lifestyle-smart-glasses.jpg',
+        alt: 'InnoX smart glasses lifestyle product image',
       },
       {
-        src: '/assets/innox-prompter-view.png',
-        alt: 'InnoX prompter presentation use case',
+        src: '/assets/innox-smart-glasses-product.jpg',
+        alt: 'InnoX smart glasses product render',
       },
       {
-        src: '/assets/innox-communication-use.png',
-        alt: 'InnoX smart glasses communication use case',
+        src: '/assets/innox-smart-glasses-detail.jpg',
+        alt: 'InnoX smart glasses close-up detail',
       },
     ],
     features: [
