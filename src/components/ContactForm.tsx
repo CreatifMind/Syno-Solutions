@@ -5,8 +5,7 @@ import { company } from '../data/site'
 
 const enquiryTypes = [
   'Business Consultation',
-  'Kotti (InnoX) Product Enquiry',
-  'InnoX Product Enquiry',
+  'Product Enquiry',
   'Partnership Opportunity',
   'General Enquiry',
 ] as const

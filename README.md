@@ -98,6 +98,13 @@ GOOGLE_SHEETS_FORM_TOKEN=the-same-secret-used-for-FORM_TOKEN
 
 6. Redeploy the Vercel project, submit a test enquiry, and confirm that a new row appears in `Enquiries`.
 
+### Troubleshooting the Google Sheet Connection
+
+- Do not press **Run** on `doPost` in the Apps Script editor. It requires the web request event that only the deployed website supplies, so `postData` will be undefined during a manual editor run.
+- To confirm the deployed script is available, make sure `doGet` is included in the script above, then open the deployed `/exec` URL in a browser. It should show a small response containing `"ok":true`.
+- If the URL does not show that response, choose **Deploy > Manage deployments**, edit the active web app deployment, select **New version**, and deploy again.
+- If the website form still returns an error, confirm the tab is named exactly `Enquiries`, the deployment runs as you and is accessible to `Anyone`, and the Vercel `GOOGLE_SHEETS_FORM_TOKEN` exactly matches the Apps Script `FORM_TOKEN` Script Property.
+
 The contact page also retains a clickable direct email address and a **Copy Email Address** button for visitors who prefer to email `synosolutions.ent@gmail.com` themselves. Until both Vercel variables are configured, the form returns a clear direct-email fallback instead of silently losing an enquiry.
 
 `vercel.json` provides clean React Router URLs and security headers for the Vercel deployment.
