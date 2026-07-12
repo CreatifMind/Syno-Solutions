@@ -47,17 +47,17 @@ The form posts to the Vercel function at `/api/contact`, which securely relays e
 
    function doPost(e) {
      try {
-       const payload = JSON.parse(e.postData?.contents || '{}')
+       const payload = JSON.parse(e?.postData?.contents || '{}')
        const properties = PropertiesService.getScriptProperties()
        const expectedToken = properties.getProperty('FORM_TOKEN')
        const spreadsheetId = properties.getProperty('SPREADSHEET_ID')
 
-       if (!expectedToken || !spreadsheetId || payload.token !== expectedToken) {
-         return json({ ok: false, message: 'Unauthorized request.' })
-       }
+       if (!expectedToken) return json({ ok: false, message: 'FORM_TOKEN is missing from Script Properties.' })
+       if (!spreadsheetId) return json({ ok: false, message: 'SPREADSHEET_ID is missing from Script Properties.' })
+       if (payload.token !== expectedToken) return json({ ok: false, message: 'The form token does not match.' })
 
        const sheet = SpreadsheetApp.openById(spreadsheetId).getSheetByName(SHEET_NAME)
-       if (!sheet) return json({ ok: false, message: `Sheet "${SHEET_NAME}" was not found.` })
+       if (!sheet) return json({ ok: false, message: `The "${SHEET_NAME}" sheet tab was not found.` })
 
        sheet.appendRow([
          new Date(),
@@ -72,7 +72,7 @@ The form posts to the Vercel function at `/api/contact`, which securely relays e
        return json({ ok: true })
      } catch (error) {
        console.error(error)
-       return json({ ok: false, message: 'Unable to save this enquiry.' })
+       return json({ ok: false, message: 'The script could not access the configured Google Sheet.' })
      }
    }
 

@@ -83,11 +83,17 @@ export default {
         }),
       })
 
-      const responseData = (await sheetsResponse.json().catch(() => null)) as { ok?: boolean } | null
+      const responseData = (await sheetsResponse.json().catch(() => null)) as {
+        ok?: boolean
+        message?: unknown
+      } | null
       if (!sheetsResponse.ok || !responseData?.ok) {
-        console.error('Google Sheets delivery failed', sheetsResponse.status)
+        const sheetsMessage = asText(responseData?.message, 240)
+        console.error('Google Sheets delivery failed', sheetsResponse.status, sheetsMessage)
         return json(
-          `We could not submit your enquiry. Please email us directly at ${CONTACT_EMAIL}.`,
+          sheetsMessage
+            ? `We could not submit your enquiry. Google Sheets reported: ${sheetsMessage}`
+            : `We could not submit your enquiry. Please email us directly at ${CONTACT_EMAIL}.`,
           502,
         )
       }
