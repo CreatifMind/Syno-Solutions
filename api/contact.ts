@@ -92,17 +92,22 @@ export default {
         }),
       })
 
-      const responseData = (await sheetsResponse.json().catch(() => null)) as {
-        ok?: boolean
-        message?: unknown
-      } | null
+      const responseText = await sheetsResponse.text()
+      let responseData: { ok?: boolean; message?: unknown } | null = null
+
+      try {
+        responseData = JSON.parse(responseText) as { ok?: boolean; message?: unknown }
+      } catch {
+        responseData = null
+      }
+
       if (!sheetsResponse.ok || !responseData?.ok) {
         const sheetsMessage = asText(responseData?.message, 240)
         console.error('Google Sheets delivery failed', sheetsResponse.status, sheetsMessage)
         return json(
           sheetsMessage
             ? `We could not submit your enquiry. Google Sheets reported: ${sheetsMessage}`
-            : `We could not submit your enquiry. Please email us directly at ${CONTACT_EMAIL}.`,
+            : 'Google Sheets did not return the expected response. Confirm that the Vercel URL ends in /exec and the Apps Script web app allows Anyone access.',
           502,
         )
       }
