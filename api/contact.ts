@@ -12,12 +12,21 @@ type ContactPayload = {
   website?: unknown
 }
 
+type RuntimeProcess = {
+  env?: Record<string, string | undefined>
+}
+
 function asText(value: unknown, maxLength: number) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
 }
 
 function json(message: string, status: number) {
   return Response.json({ message }, { status })
+}
+
+function getEnvironmentVariable(name: string) {
+  const runtime = globalThis as typeof globalThis & { process?: RuntimeProcess }
+  return runtime.process?.env?.[name]
 }
 
 export default {
@@ -55,8 +64,8 @@ export default {
       return json('Please enter a valid email address.', 400)
     }
 
-    const sheetsWebAppUrl = process.env.GOOGLE_SHEETS_WEB_APP_URL
-    const formToken = process.env.GOOGLE_SHEETS_FORM_TOKEN
+    const sheetsWebAppUrl = getEnvironmentVariable('GOOGLE_SHEETS_WEB_APP_URL')
+    const formToken = getEnvironmentVariable('GOOGLE_SHEETS_FORM_TOKEN')
 
     if (!sheetsWebAppUrl || !formToken) {
       return json(
