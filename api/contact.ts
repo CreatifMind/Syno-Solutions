@@ -16,15 +16,6 @@ function asText(value: unknown, maxLength: number) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : ''
 }
 
-function escapeHtml(value: string) {
-  return value
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;')
-}
-
 function json(message: string, status: number) {
   return Response.json({ message }, { status })
 }
@@ -64,75 +55,48 @@ export default {
       return json('Please enter a valid email address.', 400)
     }
 
-    const resendApiKey = process.env.RESEND_API_KEY
-    const fromEmail = process.env.CONTACT_FROM_EMAIL
+    const sheetsWebAppUrl = process.env.GOOGLE_SHEETS_WEB_APP_URL
+    const formToken = process.env.GOOGLE_SHEETS_FORM_TOKEN
 
-    if (!resendApiKey || !fromEmail) {
+    if (!sheetsWebAppUrl || !formToken) {
       return json(
-        `Email delivery is being configured. Please email us directly at ${CONTACT_EMAIL}.`,
+        `Online enquiry storage is being configured. Please email us directly at ${CONTACT_EMAIL}.`,
         503,
       )
     }
 
-    const safe = {
-      name: escapeHtml(name),
-      company: escapeHtml(company || 'Not provided'),
-      email: escapeHtml(email),
-      phone: escapeHtml(phone || 'Not provided'),
-      topic: escapeHtml(topic),
-      message: escapeHtml(message).replaceAll('\n', '<br />'),
-    }
-
     try {
-      const resendResponse = await fetch('https://api.resend.com/emails', {
+      const sheetsResponse = await fetch(sheetsWebAppUrl, {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${resendApiKey}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: fromEmail,
-          to: [CONTACT_EMAIL],
-          reply_to: email,
-          subject: `SYNO SOLUTIONS enquiry: ${topic}`,
-          text: [
-            'New enquiry from the SYNO SOLUTIONS website',
-            '',
-            `Name: ${name}`,
-            `Company: ${company || 'Not provided'}`,
-            `Email: ${email}`,
-            `Phone: ${phone || 'Not provided'}`,
-            `Enquiry type: ${topic}`,
-            '',
-            'Message:',
-            message,
-          ].join('\n'),
-          html: `
-            <h1>New SYNO SOLUTIONS website enquiry</h1>
-            <p><strong>Name:</strong> ${safe.name}</p>
-            <p><strong>Company:</strong> ${safe.company}</p>
-            <p><strong>Email:</strong> ${safe.email}</p>
-            <p><strong>Phone:</strong> ${safe.phone}</p>
-            <p><strong>Enquiry type:</strong> ${safe.topic}</p>
-            <h2>Message</h2>
-            <p>${safe.message}</p>
-          `,
+          token: formToken,
+          receivedAt: new Date().toISOString(),
+          name,
+          company,
+          email,
+          phone,
+          topic,
+          message,
         }),
       })
 
-      if (!resendResponse.ok) {
-        console.error('Resend delivery failed', resendResponse.status, await resendResponse.text())
+      const responseData = (await sheetsResponse.json().catch(() => null)) as { ok?: boolean } | null
+      if (!sheetsResponse.ok || !responseData?.ok) {
+        console.error('Google Sheets delivery failed', sheetsResponse.status)
         return json(
-          `We could not deliver your enquiry. Please email us directly at ${CONTACT_EMAIL}.`,
+          `We could not submit your enquiry. Please email us directly at ${CONTACT_EMAIL}.`,
           502,
         )
       }
 
-      return json('Thank you. Your enquiry has been sent to SYNO SOLUTIONS.', 200)
+      return json('Thank you. Your enquiry has been submitted to SYNO SOLUTIONS.', 200)
     } catch (error) {
-      console.error('Contact delivery failed', error)
+      console.error('Google Sheets delivery failed', error)
       return json(
-        `We could not deliver your enquiry. Please email us directly at ${CONTACT_EMAIL}.`,
+        `We could not submit your enquiry. Please email us directly at ${CONTACT_EMAIL}.`,
         500,
       )
     }

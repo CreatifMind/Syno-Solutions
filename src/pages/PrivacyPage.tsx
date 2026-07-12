@@ -39,8 +39,8 @@ export default function PrivacyPage() {
           <section>
             <h2>Service Providers</h2>
             <p>
-              Website hosting and email-delivery providers may process submitted information only as
-              needed to operate the website and deliver your enquiry to SYNO SOLUTIONS.
+              Website hosting and Google Sheets may process submitted information only as needed to
+              operate the website and record your enquiry for SYNO SOLUTIONS.
             </p>
           </section>
 

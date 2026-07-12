@@ -5,7 +5,7 @@ import { company } from '../data/site'
 
 const enquiryTypes = [
   'Business Consultation',
-  'Kotti Product Enquiry',
+  'Kotti (InnoX) Product Enquiry',
   'InnoX Product Enquiry',
   'Partnership Opportunity',
   'General Enquiry',
@@ -91,7 +91,7 @@ export function ContactForm({ initialTopic = '' }: ContactFormProps) {
 
       form.reset()
       setStatus('success')
-      setStatusMessage('Thank you. Your enquiry has been sent to SYNO SOLUTIONS.')
+      setStatusMessage(data?.message || 'Thank you. Your enquiry has been submitted to SYNO SOLUTIONS.')
     } catch (error) {
       setStatus('error')
       setStatusMessage(error instanceof Error ? error.message : 'We could not send your enquiry.')

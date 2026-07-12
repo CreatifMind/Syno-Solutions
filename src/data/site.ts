@@ -34,7 +34,7 @@ export const solutions = [
     number: '03',
     title: 'Product Distribution',
     summary:
-      'Support access to selected Kotti and InnoX technologies for customers in Malaysia.',
+      'Support access to selected InnoX technologies for customers in Malaysia.',
     detail:
       'We coordinate product enquiries, current information, availability discussions, and Malaysia-market communication.',
     outcomes: ['Product enquiries', 'Market coordination', 'Availability support'],

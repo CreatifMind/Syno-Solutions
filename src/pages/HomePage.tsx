@@ -24,7 +24,7 @@ const coreSolutions = [
   },
   {
     title: 'Technology Distribution',
-    description: 'Access selected Kotti and InnoX technologies within Malaysia.',
+    description: 'Access selected InnoX technologies within Malaysia.',
     icon: PackageSearch,
     to: '/solutions#product-distribution',
   },
@@ -47,7 +47,7 @@ export default function HomePage() {
   usePageMeta({
     title: 'SYNO SOLUTIONS | Business Consultation & Technology Distribution Malaysia',
     description:
-      'SYNO SOLUTIONS provides business consultation and distributes Kotti and InnoX technology solutions across Malaysia.',
+      'SYNO SOLUTIONS provides business consultation and distributes selected InnoX technologies across Malaysia.',
   })
 
   return (
@@ -58,7 +58,7 @@ export default function HomePage() {
             <h1>Smarter Solutions for Modern Businesses</h1>
             <p>
               SYNO SOLUTIONS provides practical business consultation and distributes innovative
-              Kotti and InnoX technologies across Malaysia.
+              InnoX technologies across Malaysia.
             </p>
             <div className="hero-actions">
               <ActionLink to="/solutions">Explore Our Solutions</ActionLink>
@@ -159,7 +159,7 @@ export default function HomePage() {
 
       <CtaBand
         title="Let’s Find the Right Solution for Your Business"
-        description="Speak with SYNO SOLUTIONS about business consultation, Kotti, InnoX, or a potential partnership."
+        description="Speak with SYNO SOLUTIONS about business consultation, selected InnoX technologies, or a potential partnership."
         label="Start a Conversation"
         to="/contact"
         secondaryLabel="Email Us"

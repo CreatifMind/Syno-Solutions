@@ -1493,6 +1493,35 @@ textarea:focus-visible {
   color: var(--primary);
 }
 
+.copy-email-button {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.15rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--primary);
+  padding: 0.65rem 0.85rem;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.copy-email-button:hover {
+  border-color: var(--secondary);
+  background: var(--surface-muted);
+  color: var(--primary-hover);
+}
+
+.copy-email-button:focus-visible {
+  outline: 3px solid rgba(3, 151, 222, 0.24);
+  outline-offset: 3px;
+}
+
 .contact-form {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);

@@ -10,7 +10,7 @@ export default function ContactPage() {
   usePageMeta({
     title: 'Contact SYNO SOLUTIONS',
     description:
-      'Contact SYNO SOLUTIONS in Petaling Jaya for business consultation, Kotti, InnoX, technology distribution, and partnership enquiries.',
+      'Contact SYNO SOLUTIONS in Petaling Jaya for business consultation, selected InnoX technologies, and partnership enquiries.',
     path: '/contact',
   })
 
@@ -22,7 +22,7 @@ export default function ContactPage() {
       />
       <ContactSection
         heading="How Can We Help?"
-        description="Complete the form and your enquiry will be sent directly to the SYNO SOLUTIONS team."
+        description="Submit an enquiry for secure recording, or email the SYNO SOLUTIONS team directly."
         initialTopic={initialTopic}
       />
     </>
