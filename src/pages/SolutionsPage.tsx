@@ -1,4 +1,10 @@
-import { Bot, BriefcaseBusiness, MonitorCog, Workflow } from 'lucide-react'
+import {
+  BriefcaseBusiness,
+  Handshake,
+  Network,
+  PackageCheck,
+  SearchCheck,
+} from 'lucide-react'
 import { ActionLink } from '../components/ActionLink'
 import { CtaBand } from '../components/CtaBand'
 import { PageHero } from '../components/PageHero'
@@ -6,23 +12,23 @@ import { ProcessTimeline } from '../components/ProcessTimeline'
 import { usePageMeta } from '../components/Seo'
 import { solutions } from '../data/site'
 
-const solutionIcons = [BriefcaseBusiness, Workflow, MonitorCog, Bot]
+const solutionIcons = [BriefcaseBusiness, SearchCheck, PackageCheck, Network, Handshake]
 
 export default function SolutionsPage() {
   usePageMeta({
-    title: 'Business Solutions',
+    title: 'Business Solutions & Technology Support',
     description:
-      'Explore SYNO SOLUTIONS services for business consultation, process improvement, digital transformation, and practical automation support in Malaysia.',
+      'Explore SYNO SOLUTIONS support for business consultation, technology sourcing, product distribution, implementation coordination, and partnerships in Malaysia.',
     path: '/solutions',
   })
 
   return (
     <>
       <PageHero
-        title="Business Solutions Built Around Practical Needs"
-        description="We help organisations clarify challenges, improve working methods, and make considered technology decisions without unnecessary complexity."
+        title="Practical Support for Better Business Decisions"
+        description="From understanding the requirement to coordinating technology and implementation, we keep the process focused on the organisation’s practical needs."
       >
-        <ActionLink to="/contact">Discuss Your Business Needs</ActionLink>
+        <ActionLink to="/contact?topic=Business%20Consultation">Discuss Your Requirements</ActionLink>
       </PageHero>
 
       <section className="section section-white solutions-detail-section">
@@ -54,29 +60,11 @@ export default function SolutionsPage() {
 
       <ProcessTimeline compact />
 
-      <section className="section section-light distribution-bridge">
-        <div className="site-container distribution-bridge-layout">
-          <div>
-            <span className="accent-rule" aria-hidden="true" />
-            <h2>Product Distribution & Market Support</h2>
-          </div>
-          <div>
-            <p>
-              Alongside our consulting work, SYNO SOLUTIONS distributes Kotti and Visel products
-              manufactured by InnoX for the Malaysian market.
-            </p>
-            <ActionLink to="/products" variant="outline-dark">
-              Explore InnoX Products
-            </ActionLink>
-          </div>
-        </div>
-      </section>
-
       <CtaBand
-        title="Start with the Business Challenge"
-        description="Tell us what is slowing the team down, creating uncertainty, or limiting progress."
-        label="Start a Conversation"
-        to="/contact?topic=Business%20consultation"
+        title="Start with the Requirement"
+        description="Tell us what your organisation is trying to solve, source, or implement."
+        label="Book a Consultation"
+        to="/contact?topic=Business%20Consultation"
       />
     </>
   )

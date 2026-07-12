@@ -12,13 +12,14 @@ const primaryLinks = [
 const productLinks = [
   { label: 'All Products', to: '/products' },
   { label: 'Kotti', to: '/products/kotti' },
-  { label: 'Visel', to: '/products/visel' },
+  { label: 'InnoX', to: '/products/innox' },
 ] as const
 
 export function Header() {
   const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const productMenuRef = useRef<HTMLDivElement>(null)
   const productButtonRef = useRef<HTMLButtonElement>(null)
   const mobileButtonRef = useRef<HTMLButtonElement>(null)
@@ -28,6 +29,22 @@ export function Header() {
     setMobileOpen(false)
     setProductsOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    const updateScrolled = () => setScrolled(window.scrollY > 8)
+    updateScrolled()
+    window.addEventListener('scroll', updateScrolled, { passive: true })
+    return () => window.removeEventListener('scroll', updateScrolled)
+  }, [])
+
+  useEffect(() => {
+    const desktopQuery = window.matchMedia('(min-width: 1001px)')
+    const closeOnDesktop = (event: MediaQueryListEvent) => {
+      if (event.matches) setMobileOpen(false)
+    }
+    desktopQuery.addEventListener('change', closeOnDesktop)
+    return () => desktopQuery.removeEventListener('change', closeOnDesktop)
+  }, [])
 
   useEffect(() => {
     const handlePointerDown = (event: PointerEvent) => {
@@ -71,14 +88,14 @@ export function Header() {
       <a className="skip-link" href="#main-content">
         Skip to content
       </a>
-      <header className="site-header">
+      <header className={`site-header ${scrolled ? 'site-header-scrolled' : ''}`.trim()}>
         <div className="site-container header-inner">
           <Link className="brand-link" to="/" aria-label="SYNO SOLUTIONS home">
             <img
-              src="/assets/syno-mark-small.png"
+              src="/assets/syno-mark-transparent.png"
               alt=""
-              width="160"
-              height="134"
+              width="620"
+              height="520"
               decoding="async"
             />
             <span>SYNO SOLUTIONS</span>
@@ -116,7 +133,7 @@ export function Header() {
           </nav>
 
           <Link className="header-cta" to="/contact">
-            <span>Start a Conversation</span>
+            <span>Book a Consultation</span>
             <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
           </Link>
 
@@ -135,8 +152,15 @@ export function Header() {
 
       </header>
       {mobileOpen ? (
-        <nav className="mobile-navigation" id="mobile-navigation" aria-label="Mobile navigation">
-          <div className="site-container mobile-navigation-inner">
+        <div className="mobile-navigation-layer">
+          <button
+            type="button"
+            className="mobile-navigation-backdrop"
+            aria-label="Close navigation panel"
+            onClick={() => setMobileOpen(false)}
+          />
+          <nav className="mobile-navigation" id="mobile-navigation" aria-label="Mobile navigation">
+            <div className="mobile-navigation-inner">
             {primaryLinks.slice(0, 2).map((item) => (
               <NavLink key={item.to} to={item.to} end={item.to === '/'}>
                 {item.label}
@@ -146,7 +170,7 @@ export function Header() {
               <NavLink to="/products">Products</NavLink>
               <div>
                 <NavLink to="/products/kotti">Kotti</NavLink>
-                <NavLink to="/products/visel">Visel</NavLink>
+                <NavLink to="/products/innox">InnoX</NavLink>
               </div>
             </div>
             {primaryLinks.slice(2).map((item) => (
@@ -155,11 +179,12 @@ export function Header() {
               </NavLink>
             ))}
             <Link className="mobile-navigation-cta" to="/contact">
-              Start a Conversation
+              Book a Consultation
               <ArrowRight aria-hidden="true" size={18} strokeWidth={1.8} />
             </Link>
-          </div>
-        </nav>
+            </div>
+          </nav>
+        </div>
       ) : null}
     </>
   )

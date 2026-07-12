@@ -9,7 +9,7 @@ export function ProcessTimeline({ compact = false }: ProcessTimelineProps) {
   return (
     <section className={`section section-white process-section ${compact ? 'process-section-compact' : ''}`.trim()}>
       <div className="site-container">
-        <SectionIntro title="A Practical Path from Challenge to Action" />
+        <SectionIntro title="A Practical Path Forward" />
         <ol className="process-timeline">
           {processSteps.map((step) => (
             <li key={step.number}>

@@ -15,7 +15,7 @@ import { products, type ProductSlug } from '../data/site'
 import { NotFoundContent } from './NotFoundPage'
 
 const kottiApplicationIcons = [HeartHandshake, Languages, Sparkles]
-const viselApplicationIcons = [Captions, Presentation, Glasses]
+const innoxApplicationIcons = [Captions, Presentation, Glasses]
 
 export default function ProductPage() {
   const { slug = '' } = useParams()
@@ -24,8 +24,8 @@ export default function ProductPage() {
   usePageMeta(
     product
       ? {
-          title: `${product.name} | InnoX Product`,
-          description: `${product.summary} Manufactured by InnoX and distributed in Malaysia by SYNO SOLUTIONS.`,
+          title: `${product.name} Technology Malaysia`,
+          description: `${product.summary} Supported in Malaysia by SYNO SOLUTIONS.`,
           path: `/products/${product.slug}`,
           image: product.heroImage,
         }
@@ -39,7 +39,7 @@ export default function ProductPage() {
 
   if (!product) return <NotFoundContent />
 
-  const applicationIcons = product.slug === 'kotti' ? kottiApplicationIcons : viselApplicationIcons
+  const applicationIcons = product.slug === 'kotti' ? kottiApplicationIcons : innoxApplicationIcons
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function ProductPage() {
             <span className="accent-rule" aria-hidden="true" />
             <p className="product-hero-summary">{product.summary}</p>
             <p className="product-provenance">
-              Manufactured by InnoX. Distributed in Malaysia by SYNO SOLUTIONS.
+              Product enquiries and Malaysia-market coordination by SYNO SOLUTIONS.
             </p>
             <div className="product-hero-actions">
               <ActionLink to={`/contact?topic=${encodeURIComponent(product.enquiryTopic)}`}>
@@ -74,6 +74,16 @@ export default function ProductPage() {
               fetchPriority="high"
             />
           </figure>
+        </div>
+      </section>
+
+      <section className="section section-tint product-problem-section">
+        <div className="site-container product-problem-layout">
+          <div>
+            <span className="accent-rule" aria-hidden="true" />
+            <h2>{product.problemHeading}</h2>
+          </div>
+          <p>{product.problem}</p>
         </div>
       </section>
 

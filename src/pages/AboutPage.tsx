@@ -8,15 +8,15 @@ export default function AboutPage() {
   usePageMeta({
     title: 'About SYNO SOLUTIONS',
     description:
-      'Learn about SYNO SOLUTIONS, a Malaysia-based company focused on practical business consultation, operational improvement, technology adoption, and InnoX product distribution.',
+      'Learn about SYNO SOLUTIONS, a Malaysia-based company focused on business consultation, technology distribution, and practical implementation support.',
     path: '/about',
   })
 
   return (
     <>
       <PageHero
-        title="Modern, Practical, Solution-Oriented"
-        description="SYNO SOLUTIONS is a Malaysia-based business solutions and consultation company focused on helping organisations identify challenges, improve processes, and implement practical solutions."
+        title="Practical Business and Technology Support in Malaysia"
+        description="SYNO SOLUTIONS is a Malaysia-based business solutions company helping organisations clarify requirements, access suitable technologies, and coordinate practical next steps."
       >
         <ActionLink to="/contact">Talk to Our Team</ActionLink>
       </PageHero>
@@ -25,14 +25,14 @@ export default function AboutPage() {
         <div className="site-container about-story-layout">
           <div className="about-story-copy">
             <span className="accent-rule" aria-hidden="true" />
-            <h2>Helping Businesses Move from Challenge to Action</h2>
+            <h2>Business Needs Come Before Technology</h2>
             <p>
-              We work with businesses that want to become more efficient, structured, and future-ready
-              through strategic consultation, digital solutions, and practical technology decisions.
+              We begin by understanding the organisation, intended outcome, and practical constraints
+              before discussing products or solution approaches.
             </p>
             <p>
-              Our role is to bring clarity to the challenge, evaluate realistic options, and support a
-              path that makes sense for the organisation rather than forcing a one-size-fits-all answer.
+              Our role is to bring clarity to the requirement, coordinate realistic options, and support
+              communication between the customer and relevant technology partners.
             </p>
           </div>
           <figure className="about-story-media">
@@ -54,8 +54,8 @@ export default function AboutPage() {
             <span>01</span>
             <h2>Business Solutions</h2>
             <p>
-              Consultation, process improvement, digital transformation, and automation support built
-              around practical business needs.
+              Requirement discovery, business consultation, technology sourcing, and implementation
+              coordination built around practical needs.
             </p>
             <ActionLink to="/solutions" variant="outline-dark">
               Explore Solutions
@@ -65,7 +65,8 @@ export default function AboutPage() {
             <span>02</span>
             <h2>Product Distribution</h2>
             <p>
-              Malaysia-market support for Kotti and Visel, two product lines manufactured by InnoX.
+              Product discovery, enquiry support, and Malaysia-market coordination for Kotti and InnoX
+              technologies.
             </p>
             <ActionLink to="/products" variant="outline-dark">
               Explore Products
@@ -78,7 +79,7 @@ export default function AboutPage() {
 
       <CtaBand
         title="A Practical Conversation Is the Best Place to Start"
-        description="Tell us what your organisation is trying to improve or which InnoX product you are evaluating."
+        description="Tell us what your organisation is trying to improve or which Kotti or InnoX technology you are evaluating."
         label="Get in Touch"
         to="/contact"
       />

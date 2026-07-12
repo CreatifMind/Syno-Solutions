@@ -6,14 +6,14 @@ Production website for SYNO SOLUTIONS, built with React, TypeScript, Vite, Tailw
 
 - `/` - company overview
 - `/solutions` - consultation, process, technology, and automation support
-- `/products` - Kotti and Visel product overview
+- `/products` - Kotti and InnoX product overview
 - `/products/kotti` - Kotti product information
-- `/products/visel` - Visel product information
+- `/products/innox` - InnoX product information
 - `/about` - company approach and distribution role
 - `/contact` - enquiry form and company contact details
 - `/privacy` - website enquiry privacy notice
 
-InnoX is presented as the manufacturer of Kotti and Visel. SYNO SOLUTIONS is presented as their Malaysia distributor.
+SYNO SOLUTIONS is presented as a Malaysia-market business consultation and technology distribution company supporting Kotti and InnoX enquiries.
 
 ## Local Development
 

@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { RouteEffects } from './components/RouteEffects'
@@ -33,6 +33,7 @@ function AppRoutes() {
             <Route path="/" element={<HomePage />} />
             <Route path="/solutions" element={<SolutionsPage />} />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/visel" element={<Navigate to="/products/innox" replace />} />
             <Route path="/products/:slug" element={<ProductPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />

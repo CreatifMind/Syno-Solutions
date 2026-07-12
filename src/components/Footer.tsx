@@ -8,10 +8,16 @@ export function Footer() {
       <div className="site-container footer-grid">
         <div className="footer-brand">
           <Link className="brand-link brand-link-footer" to="/" aria-label="SYNO SOLUTIONS home">
-            <img src="/assets/syno-mark-small.png" alt="" width="160" height="134" loading="lazy" />
+            <img
+              src="/assets/syno-mark-transparent.png"
+              alt=""
+              width="620"
+              height="520"
+              loading="lazy"
+            />
             <span>SYNO SOLUTIONS</span>
           </Link>
-          <p>Business solutions, practical consultation, and InnoX product distribution in Malaysia.</p>
+          <p>Business consultation, technology distribution, and practical implementation support in Malaysia.</p>
         </div>
 
         <div className="footer-column">
@@ -26,7 +32,7 @@ export function Footer() {
           <Link to="/solutions">Solutions</Link>
           <Link to="/products">Products</Link>
           <Link to="/products/kotti">Kotti</Link>
-          <Link to="/products/visel">Visel</Link>
+          <Link to="/products/innox">InnoX</Link>
         </div>
 
         <div className="footer-column footer-contact">

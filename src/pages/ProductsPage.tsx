@@ -8,9 +8,9 @@ import { productList } from '../data/site'
 
 export default function ProductsPage() {
   usePageMeta({
-    title: 'Kotti & Visel Products by InnoX',
+    title: 'Kotti & InnoX Technology Solutions',
     description:
-      'Explore Kotti and Visel products manufactured by InnoX and distributed in Malaysia by SYNO SOLUTIONS.',
+      'Explore Kotti and InnoX technology solutions supported by SYNO SOLUTIONS for customers in Malaysia.',
     path: '/products',
     image: '/assets/kotti-product-lineup.jpg',
   })
@@ -18,29 +18,23 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
-        title="Products Manufactured by InnoX"
-        description="SYNO SOLUTIONS supports the Malaysian market as a distributor for Kotti and Visel, two product lines manufactured by InnoX."
+        title="Kotti and InnoX Technologies"
+        description="SYNO SOLUTIONS supports product discovery, enquiries, and Malaysia-market coordination for selected Kotti and InnoX technologies."
       >
-        <ActionLink to="/contact?topic=Distribution%20or%20partnership">Discuss Distribution</ActionLink>
+        <ActionLink to="/contact?topic=General%20Enquiry">Discuss Your Requirements</ActionLink>
       </PageHero>
 
-      <section className="section section-white manufacturer-section">
-        <div className="site-container manufacturer-layout">
+      <section className="section section-tint products-catalogue-section">
+        <div className="site-container">
           <SectionIntro
-            title="One Manufacturer. Two Distinct Product Lines."
-            description="Kotti and Visel address different interaction needs while sharing InnoX as their manufacturer."
+            title="Technology for Practical Use Cases"
+            description="Review the available product information, then speak with our team about current details and suitability."
           />
-          <div className="manufacturer-name" aria-label="InnoX">
-            INNO<span>X</span>
+          <div className="products-catalogue">
+            {productList.map((product, index) => (
+              <ProductBand key={product.slug} product={product} reverse={index % 2 === 1} />
+            ))}
           </div>
-        </div>
-      </section>
-
-      <section className="section section-light products-catalogue-section">
-        <div className="site-container products-catalogue">
-          {productList.map((product, index) => (
-            <ProductBand key={product.slug} product={product} reverse={index % 2 === 1} />
-          ))}
         </div>
       </section>
 
@@ -48,15 +42,15 @@ export default function ProductsPage() {
         <div className="site-container distribution-support-layout">
           <div>
             <span className="accent-rule" aria-hidden="true" />
-            <h2>Malaysia Distribution Support</h2>
+            <h2>Malaysia Product Support</h2>
           </div>
           <div>
             <p>
-              Contact SYNO SOLUTIONS for current Malaysia-market product information, enquiry support,
-              availability discussions, and potential distribution partnerships.
+              Contact SYNO SOLUTIONS for current product information, enquiry support, availability
+              discussions, and potential partnership opportunities in Malaysia.
             </p>
             <p className="product-disclaimer">
-              Product specifications and availability may vary. Current information will be confirmed
+              Product features and availability may vary. Current information will be confirmed
               during the enquiry process.
             </p>
           </div>
@@ -64,10 +58,10 @@ export default function ProductsPage() {
       </section>
 
       <CtaBand
-        title="Explore the Right Product for Your Use Case"
-        description="Tell us whether you are evaluating Kotti, Visel, or a broader distribution opportunity."
+        title="Find the Right Product for Your Use Case"
+        description="Tell us whether you are evaluating Kotti, InnoX, or a broader technology opportunity."
         label="Start a Product Enquiry"
-        to="/contact?topic=Distribution%20or%20partnership"
+        to="/contact?topic=General%20Enquiry"
       />
     </>
   )

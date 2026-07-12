@@ -10,19 +10,19 @@ export default function ContactPage() {
   usePageMeta({
     title: 'Contact SYNO SOLUTIONS',
     description:
-      'Contact SYNO SOLUTIONS in Petaling Jaya for business consultation, process improvement, technology support, Kotti, Visel, and distribution enquiries.',
+      'Contact SYNO SOLUTIONS in Petaling Jaya for business consultation, Kotti, InnoX, technology distribution, and partnership enquiries.',
     path: '/contact',
   })
 
   return (
     <>
       <PageHero
-        title="Start a Practical Conversation"
-        description="Tell us about the business challenge, product enquiry, or distribution opportunity you would like to discuss."
+        title="Talk to SYNO SOLUTIONS"
+        description="Tell us about your business requirement, product enquiry, or partnership opportunity."
       />
       <ContactSection
-        heading="Let's Talk About What Needs to Work Better"
-        description="Complete the form and your enquiry will be sent directly to SYNO SOLUTIONS."
+        heading="How Can We Help?"
+        description="Complete the form and your enquiry will be sent directly to the SYNO SOLUTIONS team."
         initialTopic={initialTopic}
       />
     </>

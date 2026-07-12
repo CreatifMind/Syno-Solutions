@@ -1,25 +1,53 @@
-import { ArrowRight, BriefcaseBusiness, MonitorCog, PackageCheck, Workflow } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import {
+  BriefcaseBusiness,
+  Handshake,
+  Lightbulb,
+  MapPin,
+  MessagesSquare,
+  PackageSearch,
+  Settings2,
+} from 'lucide-react'
 import { ActionLink, TextLink } from '../components/ActionLink'
-import { ContactSection } from '../components/ContactSection'
+import { CtaBand } from '../components/CtaBand'
 import { ProcessTimeline } from '../components/ProcessTimeline'
 import { ProductBand } from '../components/ProductBand'
 import { SectionIntro } from '../components/SectionIntro'
 import { usePageMeta } from '../components/Seo'
-import { productList, solutions } from '../data/site'
+import { company, productList } from '../data/site'
 
-const credibilityItems = [
-  { label: 'Business consultation', icon: BriefcaseBusiness },
-  { label: 'Process improvement', icon: Workflow },
-  { label: 'Technology adoption', icon: MonitorCog },
-  { label: 'Product distribution', icon: PackageCheck },
+const coreSolutions = [
+  {
+    title: 'Business Consultation',
+    description: 'Identify challenges, opportunities, and practical solution approaches.',
+    icon: MessagesSquare,
+    to: '/solutions#business-consultation',
+  },
+  {
+    title: 'Technology Distribution',
+    description: 'Access selected Kotti and InnoX technologies within Malaysia.',
+    icon: PackageSearch,
+    to: '/solutions#product-distribution',
+  },
+  {
+    title: 'Implementation Support',
+    description: 'Coordinate adoption and communication between customers and technology partners.',
+    icon: Settings2,
+    to: '/solutions#implementation-coordination',
+  },
+] as const
+
+const trustPoints = [
+  { label: 'Malaysia-focused market understanding', icon: MapPin },
+  { label: 'Access to innovative technology brands', icon: Lightbulb },
+  { label: 'Business-first recommendations', icon: BriefcaseBusiness },
+  { label: 'Responsive consultation and implementation coordination', icon: Handshake },
 ] as const
 
 export default function HomePage() {
   usePageMeta({
-    title: 'SYNO SOLUTIONS | Business Solutions & InnoX Product Distribution',
+    title: 'SYNO SOLUTIONS | Business Consultation & Technology Distribution Malaysia',
     description:
-      'Practical business consultation, process improvement, digital transformation, automation support, and Malaysia distribution for Kotti and Visel products manufactured by InnoX.',
+      'SYNO SOLUTIONS provides business consultation and distributes Kotti and InnoX technology solutions across Malaysia.',
   })
 
   return (
@@ -27,79 +55,77 @@ export default function HomePage() {
       <section className="home-hero">
         <div className="site-container home-hero-inner">
           <div className="home-hero-copy">
-            <h1>Practical Business Solutions for More Efficient Operations</h1>
+            <h1>Smarter Solutions for Modern Businesses</h1>
             <p>
-              We help businesses improve processes, adopt practical technology, and access selected
-              InnoX products through trusted distribution support in Malaysia.
+              SYNO SOLUTIONS provides practical business consultation and distributes innovative
+              Kotti and InnoX technologies across Malaysia.
             </p>
             <div className="hero-actions">
-              <ActionLink to="/contact">Discuss a Business Challenge</ActionLink>
-              <ActionLink to="/products" variant="outline-light">
-                Explore Products
+              <ActionLink to="/solutions">Explore Our Solutions</ActionLink>
+              <ActionLink to="/contact" variant="outline-dark">
+                Contact Us
               </ActionLink>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="pathway-section" aria-label="How SYNO SOLUTIONS can help">
-        <div className="site-container pathway-grid">
-          <Link to="/solutions" className="pathway-link">
-            <span className="accent-rule" aria-hidden="true" />
-            <h2>Business Solutions</h2>
-            <p>Improve processes, strengthen operations, and support practical technology adoption.</p>
-            <ArrowRight className="pathway-arrow" aria-hidden="true" size={30} strokeWidth={1.5} />
-          </Link>
-          <Link to="/products" className="pathway-link">
-            <span className="accent-rule" aria-hidden="true" />
-            <h2>Product Distribution</h2>
-            <p>Access selected Kotti and Visel products manufactured by InnoX.</p>
-            <ArrowRight className="pathway-arrow" aria-hidden="true" size={30} strokeWidth={1.5} />
-          </Link>
-        </div>
-      </section>
-
-      <section className="section section-white home-solutions-section">
-        <div className="site-container home-solutions-layout">
-          <div>
-            <SectionIntro
-              title="Improve the Way Your Business Works"
-              description="Practical support for clearer processes, stronger systems, and better technology adoption."
-            />
-            <div className="editorial-link-list">
-              {solutions.map((solution) => (
-                <Link key={solution.id} to={`/solutions#${solution.id}`}>
-                  <span>{solution.number}</span>
-                  <strong>{solution.title}</strong>
-                  <ArrowRight aria-hidden="true" size={19} strokeWidth={1.7} />
-                </Link>
-              ))}
-            </div>
-            <TextLink to="/solutions">View All Solutions</TextLink>
-          </div>
-          <figure className="editorial-media">
+          <figure className="home-hero-media">
             <img
-              src="/assets/process-workshop.jpg"
-              alt="A business team reviewing a practical process workflow"
-              width="1448"
-              height="1086"
-              loading="lazy"
+              src="/assets/business-operations-hero.jpg"
+              alt="Business professionals reviewing an operational plan together"
+              width="1672"
+              height="941"
               decoding="async"
+              fetchPriority="high"
             />
           </figure>
         </div>
       </section>
 
-      <section className="section section-dark home-products-section">
+      <section className="section section-tint company-positioning-section">
+        <div className="site-container company-positioning-layout">
+          <div>
+            <span className="accent-rule" aria-hidden="true" />
+            <h2>Practical Support from Requirement to Implementation</h2>
+          </div>
+          <div>
+            <p>
+              SYNO SOLUTIONS helps businesses identify suitable technologies, access innovative
+              products, and coordinate practical implementation.
+            </p>
+            <TextLink to="/about">Learn About Our Approach</TextLink>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-white core-solutions-section">
         <div className="site-container">
           <SectionIntro
-            inverse
-            title="InnoX Products for the Malaysian Market"
-            description="SYNO SOLUTIONS distributes selected products manufactured by InnoX."
+            title="How We Support Your Business"
+            description="Focused support across business requirements, technology access, and practical adoption."
+          />
+          <div className="core-solutions-grid">
+            {coreSolutions.map(({ title, description, icon: Icon, to }) => (
+              <article className="solution-card" key={title}>
+                <div className="solution-card-icon">
+                  <Icon aria-hidden="true" size={29} strokeWidth={1.55} />
+                </div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <TextLink to={to}>Learn More</TextLink>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-tint home-products-section">
+        <div className="site-container">
+          <SectionIntro
+            title="Technology for Practical Business Needs"
+            description="Explore the selected technologies supported by SYNO SOLUTIONS in Malaysia."
           />
           <div className="home-product-list">
             {productList.map((product, index) => (
-              <ProductBand key={product.slug} product={product} dark reverse={index % 2 === 1} />
+              <ProductBand key={product.slug} product={product} reverse={index % 2 === 1} />
             ))}
           </div>
         </div>
@@ -107,21 +133,21 @@ export default function HomePage() {
 
       <ProcessTimeline />
 
-      <section className="section credibility-section">
-        <div className="site-container credibility-layout">
-          <div className="credibility-copy">
+      <section className="section why-section">
+        <div className="site-container why-layout">
+          <div className="why-copy">
             <span className="accent-rule" aria-hidden="true" />
-            <h2>Malaysia-Based, Business-Focused</h2>
+            <h2>Why Work with SYNO SOLUTIONS</h2>
             <p>
-              SYNO SOLUTIONS supports organisations with practical consultation and selected InnoX
-              product distribution in Malaysia.
+              Practical support grounded in local market understanding, clear communication, and
+              business needs.
             </p>
             <ActionLink to="/about" variant="outline-light">
               About SYNO SOLUTIONS
             </ActionLink>
           </div>
-          <ul className="credibility-list">
-            {credibilityItems.map(({ label, icon: Icon }) => (
+          <ul className="why-list">
+            {trustPoints.map(({ label, icon: Icon }) => (
               <li key={label}>
                 <Icon aria-hidden="true" size={25} strokeWidth={1.6} />
                 <span>{label}</span>
@@ -131,7 +157,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <ContactSection />
+      <CtaBand
+        title="Let’s Find the Right Solution for Your Business"
+        description="Speak with SYNO SOLUTIONS about business consultation, Kotti, InnoX, or a potential partnership."
+        label="Start a Conversation"
+        to="/contact"
+        secondaryLabel="Email Us"
+        secondaryHref={`mailto:${company.email}`}
+      />
     </>
   )
 }
