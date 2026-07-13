@@ -69,10 +69,10 @@ export default function HomePage() {
           </div>
           <figure className="home-hero-media">
             <img
-              src="/assets/about-kl-concept.png"
+              src="/assets/kl-skyline-hero-hd.jpg"
               alt="Kuala Lumpur skyline"
-              width="420"
-              height="230"
+              width="1586"
+              height="992"
               decoding="async"
               fetchPriority="high"
             />
