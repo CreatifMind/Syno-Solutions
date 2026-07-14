@@ -10,8 +10,18 @@ export const company = {
 
 export const solutions = [
   {
-    id: 'business-consultation',
+    id: 'product-distribution',
     number: '01',
+    title: 'Product Distribution',
+    summary:
+      'Support access to selected InnoX technologies for customers in Malaysia.',
+    detail:
+      'We coordinate product enquiries, current information, availability discussions, and Malaysia-market communication.',
+    outcomes: ['Product enquiries', 'Market coordination', 'Availability support'],
+  },
+  {
+    id: 'business-consultation',
+    number: '02',
     title: 'Business Consultation',
     summary:
       'Clarify business requirements, operational challenges, and suitable solution approaches.',
@@ -21,23 +31,13 @@ export const solutions = [
   },
   {
     id: 'technology-sourcing',
-    number: '02',
+    number: '03',
     title: 'Technology Sourcing',
     summary:
       'Identify products and technologies that fit the organisation, intended use, and local context.',
     detail:
       'Our approach starts with the business need, then considers available technologies and how they may support the intended outcome.',
     outcomes: ['Needs assessment', 'Solution evaluation', 'Supplier coordination'],
-  },
-  {
-    id: 'product-distribution',
-    number: '03',
-    title: 'Product Distribution',
-    summary:
-      'Support access to selected InnoX technologies for customers in Malaysia.',
-    detail:
-      'We coordinate product enquiries, current information, availability discussions, and Malaysia-market communication.',
-    outcomes: ['Product enquiries', 'Market coordination', 'Availability support'],
   },
   {
     id: 'implementation-coordination',

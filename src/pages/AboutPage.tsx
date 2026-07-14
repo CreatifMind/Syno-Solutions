@@ -8,7 +8,7 @@ export default function AboutPage() {
   usePageMeta({
     title: 'About SYNO SOLUTIONS',
     description:
-      'Learn about SYNO SOLUTIONS, a Malaysia-based company focused on business consultation, technology distribution, and practical implementation support.',
+      'Learn about SYNO SOLUTIONS, a Malaysia-based company focused on technology distribution, business consultation, and practical implementation support.',
     path: '/about',
   })
 
@@ -52,17 +52,6 @@ export default function AboutPage() {
         <div className="site-container about-pathways-grid">
           <article>
             <span>01</span>
-            <h2>Business Solutions</h2>
-            <p>
-              Requirement discovery, business consultation, technology sourcing, and implementation
-              coordination built around practical needs.
-            </p>
-            <ActionLink to="/solutions" variant="outline-dark">
-              Explore Solutions
-            </ActionLink>
-          </article>
-          <article>
-            <span>02</span>
             <h2>Product Distribution</h2>
             <p>
               Product discovery, enquiry support, and Malaysia-market coordination for selected
@@ -70,6 +59,17 @@ export default function AboutPage() {
             </p>
             <ActionLink to="/products" variant="outline-dark">
               Explore Products
+            </ActionLink>
+          </article>
+          <article>
+            <span>02</span>
+            <h2>Business Solutions</h2>
+            <p>
+              Requirement discovery, business consultation, technology sourcing, and implementation
+              coordination built around practical needs.
+            </p>
+            <ActionLink to="/solutions" variant="outline-dark">
+              Explore Solutions
             </ActionLink>
           </article>
         </div>

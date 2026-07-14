@@ -12,23 +12,23 @@ import { ProcessTimeline } from '../components/ProcessTimeline'
 import { usePageMeta } from '../components/Seo'
 import { solutions } from '../data/site'
 
-const solutionIcons = [BriefcaseBusiness, SearchCheck, PackageCheck, Network, Handshake]
+const solutionIcons = [PackageCheck, BriefcaseBusiness, SearchCheck, Network, Handshake]
 
 export default function SolutionsPage() {
   usePageMeta({
-    title: 'Business Solutions & Technology Support',
+    title: 'Product Distribution & Business Support',
     description:
-      'Explore SYNO SOLUTIONS support for business consultation, technology sourcing, product distribution, implementation coordination, and partnerships in Malaysia.',
+      'Explore SYNO SOLUTIONS support for product distribution, business consultation, technology sourcing, implementation coordination, and partnerships in Malaysia.',
     path: '/solutions',
   })
 
   return (
     <>
       <PageHero
-        title="Practical Support for Better Business Decisions"
-        description="From understanding the requirement to coordinating technology and implementation, we keep the process focused on the organisation’s practical needs."
+        title="Product Distribution and Practical Business Support"
+        description="From product discovery and Malaysia-market coordination to broader business requirements, we keep each conversation focused on practical next steps."
       >
-        <ActionLink to="/contact?topic=Business%20Consultation">Discuss Your Requirements</ActionLink>
+        <ActionLink to="/contact?topic=Product%20Enquiry">Discuss Product Requirements</ActionLink>
       </PageHero>
 
       <section className="section section-white solutions-detail-section">
@@ -61,10 +61,10 @@ export default function SolutionsPage() {
       <ProcessTimeline compact />
 
       <CtaBand
-        title="Start with the Requirement"
-        description="Tell us what your organisation is trying to solve, source, or implement."
-        label="Book a Consultation"
-        to="/contact?topic=Business%20Consultation"
+        title="Start with Your Product Requirement"
+        description="Tell us what product you are evaluating or how your organisation needs support."
+        label="Start a Product Enquiry"
+        to="/contact?topic=Product%20Enquiry"
       />
     </>
   )

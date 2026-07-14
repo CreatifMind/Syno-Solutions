@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import { company } from '../data/site'
 
 const enquiryTypes = [
-  'Business Consultation',
   'Product Enquiry',
+  'Business Consultation',
   'Partnership Opportunity',
   'General Enquiry',
 ] as const

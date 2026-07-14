@@ -17,16 +17,16 @@ import { company, productList } from '../data/site'
 
 const coreSolutions = [
   {
+    title: 'Product Distribution',
+    description: 'Access selected InnoX technologies within Malaysia.',
+    icon: PackageSearch,
+    to: '/solutions#product-distribution',
+  },
+  {
     title: 'Business Consultation',
     description: 'Identify challenges, opportunities, and practical solution approaches.',
     icon: MessagesSquare,
     to: '/solutions#business-consultation',
-  },
-  {
-    title: 'Technology Distribution',
-    description: 'Access selected InnoX technologies within Malaysia.',
-    icon: PackageSearch,
-    to: '/solutions#product-distribution',
   },
   {
     title: 'Implementation Support',
@@ -45,9 +45,9 @@ const trustPoints = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'SYNO SOLUTIONS | Business Consultation & Technology Distribution Malaysia',
+    title: 'SYNO SOLUTIONS | Product Distribution & Business Support Malaysia',
     description:
-      'SYNO SOLUTIONS provides business consultation and distributes selected InnoX technologies across Malaysia.',
+      'SYNO SOLUTIONS distributes selected InnoX technologies and provides practical business support across Malaysia.',
   })
 
   return (
@@ -57,8 +57,8 @@ export default function HomePage() {
           <div className="home-hero-copy">
             <h1>Smarter Solutions for Modern Businesses</h1>
             <p>
-              SYNO SOLUTIONS provides practical business consultation and distributes innovative
-              InnoX technologies across Malaysia.
+              SYNO SOLUTIONS distributes innovative InnoX technologies and provides practical
+              business support across Malaysia.
             </p>
             <div className="hero-actions">
               <ActionLink to="/solutions">Explore Our Solutions</ActionLink>
