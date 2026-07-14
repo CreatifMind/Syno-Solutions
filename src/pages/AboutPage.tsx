@@ -66,7 +66,7 @@ export default function AboutPage() {
             <h2>Product Distribution</h2>
             <p>
               Product discovery, enquiry support, and Malaysia-market coordination for selected
-              InnoX technologies, including Kotti.
+              InnoX technologies, including Kotti and Visel.
             </p>
             <ActionLink to="/products" variant="outline-dark">
               Explore Products
@@ -79,7 +79,7 @@ export default function AboutPage() {
 
       <CtaBand
         title="A Practical Conversation Is the Best Place to Start"
-        description="Tell us what your organisation is trying to improve or which InnoX technology, including Kotti, you are evaluating."
+        description="Tell us what your organisation is trying to improve or whether you are evaluating Kotti or Visel."
         label="Get in Touch"
         to="/contact"
       />

@@ -8,9 +8,9 @@ import { productList } from '../data/site'
 
 export default function ProductsPage() {
   usePageMeta({
-    title: 'InnoX Technology Solutions, Including Kotti',
+    title: 'InnoX Technologies: Kotti & Visel',
     description:
-      'Explore selected InnoX technologies, including Kotti, supported by SYNO SOLUTIONS for customers in Malaysia.',
+      'Explore selected InnoX technologies, including Kotti and Visel, supported by SYNO SOLUTIONS for customers in Malaysia.',
     path: '/products',
     image: '/assets/kotti-product-lineup.jpg',
   })
@@ -18,8 +18,8 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
-        title="InnoX Technologies, Including Kotti"
-        description="SYNO SOLUTIONS supports product discovery, enquiries, and Malaysia-market coordination for selected InnoX technologies, including Kotti."
+        title="InnoX Technologies: Kotti & Visel"
+        description="SYNO SOLUTIONS supports product discovery, enquiries, and Malaysia-market coordination for selected InnoX technologies, including Kotti and Visel."
       >
         <ActionLink to="/contact?topic=General%20Enquiry">Discuss Your Requirements</ActionLink>
       </PageHero>
@@ -59,7 +59,7 @@ export default function ProductsPage() {
 
       <CtaBand
         title="Find the Right Product for Your Use Case"
-        description="Tell us whether you are evaluating an InnoX technology, including Kotti, or a broader technology opportunity."
+        description="Tell us whether you are evaluating Kotti, Visel, or a broader technology opportunity."
         label="Start a Product Enquiry"
         to="/contact?topic=General%20Enquiry"
       />

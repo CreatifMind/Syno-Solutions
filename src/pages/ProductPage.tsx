@@ -64,7 +64,9 @@ export default function ProductPage() {
               </ActionLink>
             </div>
           </div>
-          <figure className="product-hero-media">
+          <figure
+            className={`product-hero-media ${product.slug === 'innox' ? 'product-hero-media-visel' : ''}`}
+          >
             <img
               src={product.heroImage}
               alt={product.heroAlt}

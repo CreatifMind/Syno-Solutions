@@ -12,7 +12,7 @@ const primaryLinks = [
 const productLinks = [
   { label: 'All Products', to: '/products' },
   { label: 'Kotti', to: '/products/kotti' },
-  { label: 'InnoX', to: '/products/innox' },
+  { label: 'Visel', to: '/products/innox' },
 ] as const
 
 export function Header() {
@@ -170,7 +170,7 @@ export function Header() {
               <NavLink to="/products">Products</NavLink>
               <div>
                 <NavLink to="/products/kotti">Kotti</NavLink>
-                <NavLink to="/products/innox">InnoX</NavLink>
+                <NavLink to="/products/innox">Visel</NavLink>
               </div>
             </div>
             {primaryLinks.slice(2).map((item) => (

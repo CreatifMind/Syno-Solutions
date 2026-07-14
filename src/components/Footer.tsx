@@ -32,7 +32,7 @@ export function Footer() {
           <Link to="/solutions">Solutions</Link>
           <Link to="/products">Products</Link>
           <Link to="/products/kotti">Kotti</Link>
-          <Link to="/products/innox">InnoX</Link>
+          <Link to="/products/innox">Visel</Link>
         </div>
 
         <div className="footer-column footer-contact">

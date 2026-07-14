@@ -152,13 +152,13 @@ export const products: Record<ProductSlug, Product> = {
         description: 'Configurable interactions intended to adapt to individual preferences.',
       },
     ],
-    enquiryTopic: 'Kotti Product Enquiry',
+    enquiryTopic: 'Product Enquiry',
   },
   innox: {
     slug: 'innox',
-    name: 'InnoX',
+    name: 'Visel',
     category: 'AR smart glasses',
-    heroTitle: 'InnoX AR Smart Glasses',
+    heroTitle: 'Visel AR Smart Glasses',
     summary:
       'Smart-glasses technology with manufacturer-described visual communication and presentation support features.',
     benefit:
@@ -167,20 +167,20 @@ export const products: Record<ProductSlug, Product> = {
       'Organisations evaluating accessible communication, presentation, or smart-glasses workflows.',
     problemHeading: 'Information Within the Wearer’s View',
     problem:
-      'InnoX smart glasses are designed for scenarios where selected information may be useful without relying on a separate handheld screen.',
+      'Visel smart glasses are designed for scenarios where selected information may be useful without relying on a separate handheld screen.',
     detailHeading: 'Designed to Make Sound Visible',
     detail:
       'Manufacturer materials describe a near-eye display with speech-to-text, optical, and AI-assisted features for communication and presentation scenarios.',
     heroImage: '/assets/innox-lifestyle-smart-glasses.jpg',
-    heroAlt: 'A person wearing InnoX AR smart glasses',
+    heroAlt: 'A person wearing Visel AR smart glasses',
     gallery: [
       {
         src: '/assets/innox-smart-glasses-product.jpg',
-        alt: 'Front and side views of InnoX AR smart glasses',
+        alt: 'Front and side views of Visel AR smart glasses',
       },
       {
         src: '/assets/innox-smart-glasses-detail.jpg',
-        alt: 'Close-up detail of the InnoX smart glasses frame',
+        alt: 'Close-up detail of the Visel smart glasses frame',
       },
     ],
     features: [
@@ -205,7 +205,7 @@ export const products: Record<ProductSlug, Product> = {
         description: 'A near-eye display format intended for practical everyday use.',
       },
     ],
-    enquiryTopic: 'InnoX Product Enquiry',
+    enquiryTopic: 'Product Enquiry',
   },
 }
 
